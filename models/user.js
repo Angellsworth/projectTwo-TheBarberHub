@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true }, // Barber login
   password: { type: String, required: true }, // Hashed password
   name: { type: String, required: true }, // Barber's full name
-  currentShop: { type: String, required: true }, // Barber shop they work at
+  currentShop: { type: String}, // Barber shop they work at
   specialties: { type: [String], default: [] }, // Skills (e.g., "Fades", "Beard Trims")
   experience: { type: Number, default: 0 }, // Barbering experience in years
   upvotes: { type: Number, default: 0 }, // Community upvotes

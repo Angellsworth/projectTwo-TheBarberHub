@@ -40,8 +40,8 @@ router.post('/sign-up', async (req, res) => {
       username: req.body.username,
       password: hashedPassword, // Store hashed password
       name: req.body.name,
-      currentShop: req.body.currentShop,
-      specialties: req.body.specialties.split(',').map(s => s.trim()), // Convert input to an array
+      currentShop: req.body.currentShop || 'Independent',
+      specialties: req.body.specialties.split(',').map(skill => skill.trim()), // Convert input to an array
       experience: req.body.experience
     });
 

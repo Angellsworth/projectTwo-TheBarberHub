@@ -10,7 +10,7 @@ const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 
 const authController = require('./controllers/auth.js');
-const profileController = require('./controllers/profile.js')
+const profileController = require('./controllers/profile.js');
 const port = process.env.PORT ? process.env.PORT : '3000';
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -55,7 +55,7 @@ app.use('/auth', authController); // Users can access auth routes freely
 app.use(isSignedIn); // Everything below this now requires authentication
 
 // Protected profile page route
-app.use('/users/:userId/profile', profileController); // Users must be signed in to view/edit profile
+app.use('/users/:userId/profile', profileController);
 
 app.listen(port, () => {
   console.log(`ANGELA PANGELA! Your express app is FADING into view on port ${port}!`);
