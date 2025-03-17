@@ -1,0 +1,21 @@
+<!-- views/profile/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= user.name %>'s Profile</title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %> <!-- Navbar added here -->
+    <h1>Welcome, <%= user.name %>!</h1>
+    <p><strong>Username:</strong> <%= user.username %></p>
+    <p><strong>Current Shop:</strong> <%= user.currentShop %></p>
+    <p><strong>Specialties:</strong> <%= user.specialties.join(', ') %></p>
+    <p><strong>Experience:</strong> <%= user.experience %> years</p>
+  
+    <a href="/users/<%= user._id %>/profile/edit">Edit Profile</a>
+    <%- include('../partials/_footer.ejs') %>
+  </body>
+</html>
