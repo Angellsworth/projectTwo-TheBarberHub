@@ -1,5 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config();
+const User = require('./models/user'); 
+const Client = require('./models/client'); 
+const Service = require('./models/service');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');

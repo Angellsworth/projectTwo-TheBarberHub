@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { User, Client } = require('../models/user.js'); // Import the User model
+const User = require('../models/user.js'); // Import the User model
+const Client = require('../models/client.js');
 
 // GET Profile Index Route
 router.get('/', async (req, res) => {
@@ -44,6 +45,7 @@ router.post('/new', async (req, res) => {
             getsWaxing: req.body.getsWaxing === 'true', // Convert to boolean
             waxingAreas: req.body.waxingAreas || 'none',
             notes: req.body.notes || '',
+            barber: user._id
         });
 
         // Step 3: Only Add 'newClient' to the user's CLIENT array
@@ -73,41 +75,42 @@ router.get('/:userId/new', async (req, res) => {
 });
 
 // GET Profile Index Route - Show User Profile with Clients
-// router.get('/', async (req, res) => {
-//     try {
-//         const user = await User.findById(req.session.user._id).populate('clients'); // Populate clients
-//         console.log("User's Clients before rendering:", user.clients)
-//         if (!user) {
-//             return res.redirect('/auth/sign-in');
-//         }
-//         console.log('User Profile Data', user)
-//         res.render('profile/index.ejs', { user });
-//     } catch (error) {
-//         console.log(error);
-//         res.redirect('/');
-//     }
-// });
 router.get('/', async (req, res) => {
     try {
-        // Find the user and populate their clients
-        const user = await User.findById(req.session.user._id).populate('clients');
-
+        const user = await User.findById(req.session.user._id).populate('clients'); // Populate clients
+        console.log("User's Clients before rendering:", user.clients)
         if (!user) {
             return res.redirect('/auth/sign-in');
         }
-
-        console.log("User's Clients before rendering:", user.clients); // Debugging step
-
-        // Render profile index, passing user and clients to the view
-        res.render('profile/index.ejs', {
-            user,
-            clients: user.clients, // Pass the populated clients to the view
-        });
+        console.log('User Profile Data', user)
+        res.render('profile/index.ejs', { user });
     } catch (error) {
         console.log(error);
         res.redirect('/');
     }
 });
+// router.get('/', async (req, res) => {
+//     try {
+//         // Fetch the user and populate the clients
+//         const user = await User.findById(req.session.user._id)
+//             .populate('clients') // Replace IDs with full Client documents
+//             .exec();
 
+//         if (!user) {
+//             return res.redirect('/auth/sign-in');
+//         }
+ 
+//         console.log("Populated User Clients:", user.clients);//new
+
+//         // Send user and populated clients to EJS
+//         res.render('profile/index.ejs', {
+//             user,
+//             clients: user.clients, // new
+//         });
+//     } catch (error) {
+//         console.error("Error loading profile:", error);
+//         res.redirect('/');
+//     }
+// });
 // Export the router
 module.exports = router;
