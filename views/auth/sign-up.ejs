@@ -6,12 +6,15 @@
   <title>Sign Up</title>
 </head>
 <body>
+  <%- include('../partials/_navbar.ejs') %>
   <h1>Create a new account!</h1>
   <form action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
+
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" required />
+
     <label for="confirmPassword">Confirm Password:</label>
     <input 
       type="password"
@@ -19,7 +22,21 @@
       id="confirmPassword"
       required 
     />
+
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="currentShop">Current Barber Shop:</label>
+    <input type="text" name="currentShop" id="currentShop" required>
+
+    <label for="specialties">What are you good at?</label>
+    <input type="text" name="specialties" id="specialties" placeholder="Fades, Beard Trims, etc" />
+
+    <label for="experience">Years of Experience</label>
+    <input type="number" name="experience" id="experience" min="0" required>
+
     <button type="submit">Sign up</button>
   </form>
+  <%- include('../partials/_footer.ejs') %>
 </body>
 </html>
