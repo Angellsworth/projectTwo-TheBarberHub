@@ -3,19 +3,6 @@ const router = express.Router();
 const User = require('../models/user.js'); // Import the User model
 const Client = require('../models/client.js');
 
-// GET Profile Index Route
-router.get('/', async (req, res) => {
-    try {
-        const user = await User.findById(req.session.user._id);
-        if (!user) {
-            return res.redirect('/auth/sign-in');
-        }
-        res.render('profile/index.ejs', { user });
-    } catch (error) {
-        console.log(error);
-        res.redirect('/');
-    }
-});
 
 // GET /users/:userId/profile/new - Show form for new client
 router.get('/new', async (req, res) => {
@@ -44,6 +31,7 @@ router.post('/new', async (req, res) => {
             beardPreference: req.body.beardPreference,
             getsWaxing: req.body.getsWaxing === 'true', // Convert to boolean
             waxingAreas: req.body.waxingAreas || 'none',
+            appointments: req.body.appointment ? [new Date(req.body.appointment)] : [], // Store first appointment if provided
             notes: req.body.notes || '',
             barber: user._id
         });
