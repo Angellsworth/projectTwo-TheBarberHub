@@ -76,21 +76,6 @@
   <!-- Submit Button -->
   <button type="submit">Save Client</button>
 </form>
-  
-<!-- Move JavaScript!!! -->
-  <!-- JavaScript to Show/Hide Waxing Options -->
-  <script>
-    function toggleWaxingOptions() {
-      const waxingSelect = document.getElementById("getsWaxing");
-      const waxingOptions = document.getElementById("waxingOptions");
-
-      if (waxingSelect.value === "true") {
-        waxingOptions.style.display = "block";
-      } else {
-        waxingOptions.style.display = "none";
-      }
-    }
-  </script>
 <%- include('../partials/_footer.ejs') %>
 </body>
 </html>

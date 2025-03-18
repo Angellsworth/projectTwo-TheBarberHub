@@ -1,43 +1,73 @@
-const cloudinary = require('cloudinary').v2
-// import { v2 as cloudinary } from 'cloudinary';
+// Toggle Waxing Options Based on User Selection (Works for Both Pages)
+function toggleWaxingOptions() {
+    const waxingYes = document.getElementById("waxingYes");
+    const waxingNo = document.getElementById("waxingNo");
+    const waxingDropdown = document.getElementById("getsWaxing");
+    const waxingOptions = document.getElementById("waxingOptions");
 
-(async function() {
+    if (!waxingOptions) return; // Exit if the element doesn't exist
 
-    // Configuration
-    cloudinary.config({ 
-        cloud_name: 'dpa4nccoj', 
-        api_key: '623168951947792', 
-        api_secret: '<your_api_secret>' // Click 'View API Keys' above to copy your API secret
-    });
-    
-    // Upload an image
-     const uploadResult = await cloudinary.uploader
-       .upload(
-           'https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg', {
-               public_id: 'shoes',
-           }
-       )
-       .catch((error) => {
-           console.log(error);
-       });
-    
-    console.log(uploadResult);
-    
-    // Optimize delivery by resizing and applying auto-format and auto-quality
-    const optimizeUrl = cloudinary.url('shoes', {
-        fetch_format: 'auto',
-        quality: 'auto'
-    });
-    
-    console.log(optimizeUrl);
-    
-    // Transform the image: auto-crop to square aspect_ratio
-    const autoCropUrl = cloudinary.url('shoes', {
-        crop: 'auto',
-        gravity: 'auto',
-        width: 500,
-        height: 500,
-    });
-    
-    console.log(autoCropUrl);    
-})();
+    // Check if we're using radio buttons (Edit Page) or a dropdown (New Page)
+    if (waxingYes && waxingNo) {
+        // Handling for Edit Page (Radio Buttons)
+        if (waxingYes.checked) {
+            waxingOptions.style.display = "block";
+        } else {
+            waxingOptions.style.display = "none";
+        }
+    } else if (waxingDropdown) {
+        // Handling for New Page (Dropdown)
+        if (waxingDropdown.value === "true") {
+            waxingOptions.style.display = "block";
+        } else {
+            waxingOptions.style.display = "none";
+        }
+    }
+}
+
+// Ensure this script runs only when the page is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+    toggleWaxingOptions(); // Initialize state on page load
+
+    // Attach event listeners for the Edit Page (Radio Buttons)
+    const waxingYes = document.getElementById("waxingYes");
+    const waxingNo = document.getElementById("waxingNo");
+
+    if (waxingYes && waxingNo) {
+        waxingYes.addEventListener("change", toggleWaxingOptions);
+        waxingNo.addEventListener("change", toggleWaxingOptions);
+    }
+
+    // Attach event listener for the New Page (Dropdown)
+    const waxingDropdown = document.getElementById("getsWaxing");
+    if (waxingDropdown) {
+        waxingDropdown.addEventListener("change", toggleWaxingOptions);
+    }
+});
+
+
+// // Image preview before upload
+// document.addEventListener("DOMContentLoaded", function () {
+//     const fileInput = document.getElementById("profilePhotoInput");
+//     const previewImage = document.getElementById("profilePhotoPreview");
+
+//     if (fileInput && previewImage) {
+//         fileInput.addEventListener("change", function (event) {
+//             const file = event.target.files[0];
+//             if (file) {
+//                 const reader = new FileReader();
+//                 reader.onload = function (e) {
+//                     previewImage.src = e.target.result;
+//                 };
+//                 reader.readAsDataURL(file);
+//             }
+//         });
+//     }
+// });
+
+
+
+
+
+
+

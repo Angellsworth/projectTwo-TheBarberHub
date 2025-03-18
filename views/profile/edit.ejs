@@ -1,26 +1,35 @@
 <!-- views/profile/edit.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <script src="/js/script.js" defer></script> 
+  <script src="/script/script.js" defer></script> 
   <title>Editing <%= client.name %></title>
 </head>
 <body>
 
   <h1>Edit Client: <%= client.name %></h1>
 
-  <form action="/users/<%= client.barber._id %>/clients/<%= client._id %>?_method=PUT" method="POST">
+  <form action="/users/<%= client.barber._id %>/profile/clients/<%= client._id %>?_method=PUT" method="POST">
     
+    <!-- Client Name -->
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="<%= client.name %>" required>
 
+    <!-- Preferred Haircut Dropdown -->
     <label for="cutsReceived">Preferred Cut:</label>
-    <input type="text" name="cutsReceived" id="cutsReceived" value="<%= client.cutsReceived %>" required>
+    <select name="cutsReceived" id="cutsReceived" required>
+      <option value="basic cut" <%= client.cutsReceived === "basic cut" ? "selected" : "" %>>Basic Cut</option>
+      <option value="bald fade" <%= client.cutsReceived === "bald fade" ? "selected" : "" %>>Bald Fade</option>
+      <option value="flat top" <%= client.cutsReceived === "flat top" ? "selected" : "" %>>Flat Top</option>
+      <option value="blow out taper" <%= client.cutsReceived === "blow out taper" ? "selected" : "" %>>Blow Out Taper</option>
+      <option value="head shave" <%= client.cutsReceived === "head shave" ? "selected" : "" %>>Head Shave</option>
+      <option value="long hair" <%= client.cutsReceived === "long hair" ? "selected" : "" %>>Long Hair</option>
+    </select>
 
+    <!-- Beard Preference Dropdown -->
     <label for="beardPreference">Beard Preference:</label>
     <select name="beardPreference" id="beardPreference">
       <option value="none" <%= client.beardPreference === "none" ? "selected" : "" %>>No Beard</option>
@@ -29,17 +38,33 @@
       <option value="Beard Trim and Shave" <%= client.beardPreference === "Beard Trim and Shave" ? "selected" : "" %>>Beard Trim and Shave</option>
     </select>
 
-    <label for="getsWaxing">Gets Waxing:</label>
-    <input type="checkbox" name="getsWaxing" id="getsWaxing" <%= client.getsWaxing ? "checked" : "" %> >
+    <!-- Gets Waxing: Yes/No -->
+    <label>Gets Waxing:</label>
+    <div>
+      <input type="radio" id="waxingYes" name="getsWaxing" value="true" 
+        <%= client.getsWaxing ? "checked" : "" %>>
+      <label for="waxingYes">Yes</label>
 
-    <label for="waxingAreas">Waxing Areas:</label>
-    <input type="text" name="waxingAreas" id="waxingAreas" value="<%= client.waxingAreas %>">
+      <input type="radio" id="waxingNo" name="getsWaxing" value="false"
+        <%= !client.getsWaxing ? "checked" : "" %>>
+      <label for="waxingNo">No</label>
+    </div>
 
+    <!-- Waxing Options Dropdown (Hidden by Default) -->
+    <div id="waxingOptions" style="display: none;">
+      <label for="waxingAreas">Select Waxing Areas:</label>
+      <select name="waxingAreas" id="waxingAreas">
+        <option value="one area" <%= client.waxingAreas === "one area" ? "selected" : "" %>>One Area</option>
+        <option value="two areas" <%= client.waxingAreas === "two areas" ? "selected" : "" %>>Two Areas</option>
+        <option value="three areas" <%= client.waxingAreas === "three areas" ? "selected" : "" %>>Three Areas</option>
+      </select>
+    </div>
+
+    <!-- Client Notes -->
     <label for="notes">Notes:</label>
     <textarea name="notes" id="notes"><%= client.notes %></textarea>
 
     <button type="submit">Update Client</button>
-
   </form>
 
 </body>

@@ -12,12 +12,21 @@
 <body>
     <%- include('../partials/_navbar.ejs') %> <!-- Navbar added here -->
     <h1>Welcome, <%= user.name %>!</h1>
+    <!-- <div class="profile-container">
+      <!-- Debugging: Show profile picture URL -->
+      <!-- <p>Profile Picture URL: <%= user.profilePicture %></p> -->
+      <!-- <img src="<%= user.profilePicture %>" 
+           alt="<%= user.name %>'s Profile Picture" 
+           width="150" 
+           height="150"
+           class="profile-picture">
+  </div> --> 
     <p><strong>Username:</strong> <%= user.username %></p>
     <p><strong>Current Shop:</strong> <%= user.currentShop %></p>
     <p><strong>Specialties:</strong> <%= user.specialties.join(', ') %></p>
     <p><strong>Experience:</strong> <%= user.experience %> years</p>
   
-    <a href="/users/<%= user._id %>/profile/edit">Edit Profile</a>
+    <a href="/users/<%= user._id %>/profile/edit-user">Edit Profile</a>
     <a href="/users/<%= user._id %>/profile/new">Add a New Client</a>
 <!-- Display Clients -->
 <h2>Your Clients</h2>
