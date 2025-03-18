@@ -17,23 +17,45 @@
   
     <a href="/users/<%= user._id %>/profile/edit">Edit Profile</a>
     <a href="/users/<%= user._id %>/profile/new">Add a New Client</a>
-    <h2>Your Clients</h2>
-    <% if (user.clients.length > 0) { %>
-      <ul>
-        <% user.clients.forEach(client => { %>
-          <li>
-            <strong>Name:</strong> <%= client.name ? client.name : 'Unknown' %> <br>
-            <strong>Preferred Cut:</strong> <%= client.cutsReceived ? client.cutsReceived : 'N/A' %> <br>
-            <strong>Beard Preference:</strong> <%= client.beardPreference ? client.beardPreference : 'N/A' %> <br>
-            <strong>Waxing:</strong> <%= client.getsWaxing ? 'Yes' : 'No' %> <br>
-            <strong>Waxing Areas:</strong> <%= client.waxingAreas ? client.waxingAreas : 'None' %> <br>
-            <strong>Notes:</strong> <%= client.notes ? client.notes : 'No notes' %>
-          </li>
-        <% }); %>
-      </ul>
-    <% } else { %>
-      <p>No clients yet.</p>
-    <% } %>
+    <!-- Display Clients -->
+<!-- Display Clients -->
+<h2>Your Clients</h2>
+<% if (user.clients.length > 0) { %>
+  <ul>
+    <% user.clients.forEach(client => { %>
+      <li>
+        <a href="/users/<%= user._id %>/clients/<%= client._id %>">
+          <strong>Name:</strong> <%= client.name ? client.name : 'Unknown' %>
+        </a>
+        <br>
+        <strong>Appointments:</strong>
+        <% if (client.appointments && client.appointments.length > 0) { %>
+          <ul>
+            <% client.appointments.forEach(appointment => { %>
+              <li><%= new Date(appointment).toLocaleDateString() %></li>
+            <% }); %>
+          </ul>
+        <% } else { %>
+          No appointments yet.
+        <% } %>
+        <br>
+        <strong>Preferred Cut:</strong> <%= client.cutsReceived ? client.cutsReceived : 'N/A' %> <br>
+        <strong>Beard Preference:</strong> 
+        <% if (client.beardPreference === 'none') { %> No Beard 
+        <% } else if (client.beardPreference === 'Beard, but no Trim') { %> Beard, but no Trim
+        <% } else if (client.beardPreference === 'Beard Trim') { %> Beard Trim 
+        <% } else if (client.beardPreference === 'Beard Trim and Shave') { %> Beard Trim and Shave 
+        <% } else { %> N/A <% } %>
+        <br>
+        <strong>Waxing:</strong> <%= client.getsWaxing ? 'Yes' : 'No' %> <br>
+        <strong>Waxing Areas:</strong> <%= client.waxingAreas ? client.waxingAreas : 'None' %> <br>
+        <strong>Notes:</strong> <%= client.notes ? client.notes : 'No notes' %>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No clients yet.</p>
+<% } %>
     <%- include('../partials/_footer.ejs') %>
   </body>
 </html>
