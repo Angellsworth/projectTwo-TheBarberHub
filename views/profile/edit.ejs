@@ -1,0 +1,44 @@
+<!-- views/profile/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editing <%= client.name %></title>
+</head>
+<body>
+
+  <h1>Edit Client: <%= client.name %></h1>
+
+  <form action="/users/<%= client.barber._id %>/clients/<%= client._id %>?_method=PUT" method="POST">
+    
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= client.name %>" required>
+
+    <label for="cutsReceived">Preferred Cut:</label>
+    <input type="text" name="cutsReceived" id="cutsReceived" value="<%= client.cutsReceived %>" required>
+
+    <label for="beardPreference">Beard Preference:</label>
+    <select name="beardPreference" id="beardPreference">
+      <option value="none" <%= client.beardPreference === "none" ? "selected" : "" %>>No Beard</option>
+      <option value="Beard, but no Trim" <%= client.beardPreference === "Beard, but no Trim" ? "selected" : "" %>>Beard, but no Trim</option>
+      <option value="Beard Trim" <%= client.beardPreference === "Beard Trim" ? "selected" : "" %>>Beard Trim</option>
+      <option value="Beard Trim and Shave" <%= client.beardPreference === "Beard Trim and Shave" ? "selected" : "" %>>Beard Trim and Shave</option>
+    </select>
+
+    <label for="getsWaxing">Gets Waxing:</label>
+    <input type="checkbox" name="getsWaxing" id="getsWaxing" <%= client.getsWaxing ? "checked" : "" %> >
+
+    <label for="waxingAreas">Waxing Areas:</label>
+    <input type="text" name="waxingAreas" id="waxingAreas" value="<%= client.waxingAreas %>">
+
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"><%= client.notes %></textarea>
+
+    <button type="submit">Update Client</button>
+
+  </form>
+
+</body>
+</html>
