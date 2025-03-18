@@ -12,7 +12,10 @@ const userSchema = new mongoose.Schema({
   clients: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Client' }],
   services: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Service' }],
   createdAt: { type: Date, default: Date.now },
-  profilePhoto: { type: String, default: 'default-profile.png' }
+  profilePhoto: { 
+    type: String, 
+    default: 'https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/default-profile.png' 
+  } // Default profile picture from Cloudinary
 });
 
 // Check if model exists before defining
