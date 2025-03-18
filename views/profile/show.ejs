@@ -1,0 +1,59 @@
+<!-- views/profile/show.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= client.name %>'s Profile</title>
+</head>
+<body>
+    <nav>
+        <% if(user) { %>
+          <a href="/users/<%= user._id %>/profile">Your Profile</a>
+          <a href="/users/<%= user._id %>/clients">Manage Clients</a>
+          <a href="/auth/sign-out">Sign Out</a>
+        <% } else { %>
+          <a href="/auth/sign-in">Sign In</a>
+          <a href="/auth/sign-up">Sign Up</a>
+        <% } %>
+      </nav>
+    <h1>Client: <%= client.name %></h1>
+
+    <p><strong>Preferred Cut:</strong> <%= client.cutsReceived ? client.cutsReceived : 'N/A' %></p>
+    <p><strong>Beard Preference:</strong> 
+        <% if (client.beardPreference === 'none') { %> No Beard 
+        <% } else if (client.beardPreference === 'Beard, but no Trim') { %> Beard, but no Trim
+        <% } else if (client.beardPreference === 'Beard Trim') { %> Beard Trim 
+        <% } else if (client.beardPreference === 'Beard Trim and Shave') { %> Beard Trim and Shave 
+        <% } else { %> N/A <% } %>
+    </p>
+    <p><strong>Waxing:</strong> <%= client.getsWaxing ? 'Yes' : 'No' %></p>
+    <p><strong>Waxing Areas:</strong> <%= client.waxingAreas ? client.waxingAreas : 'None' %></p>
+    <p><strong>Notes:</strong> <%= client.notes ? client.notes : 'No notes' %></p>
+
+    <h3>Appointments:</h3>
+    <% if (client.appointments && client.appointments.length > 0) { %>
+        <ul>
+            <% client.appointments.forEach(appointment => { %>
+                <li><%= new Date(appointment).toLocaleDateString() %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No appointments yet.</p>
+    <% } %>
+    <!-- Edit Button - Navigates to the Edit Form -->
+    <a href="/users/<%= client.barber._id %>/clients/<%= client._id %>/edit">
+        <button>Edit Client</button>
+    </a>
+  
+    <form action="/users/<%= user._id %>/profile/clients/<%= client._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete this client</button>
+    </form>
+    <a href="/users/<%= user._id %>/profile">Back to Profile</a>
+
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> The Barber Hub. All fades, trims, and shaves are final.</p>
+        <p><a href="/about">About</a> | <a href="/contact">Contact</a> | <a href="/faq">FAQ</a></p>
+      </footer>
+</body>
+</html>
