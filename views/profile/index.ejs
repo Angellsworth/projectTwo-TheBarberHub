@@ -17,14 +17,14 @@
   
     <a href="/users/<%= user._id %>/profile/edit">Edit Profile</a>
     <a href="/users/<%= user._id %>/profile/new">Add a New Client</a>
-    <!-- Display Clients -->
 <!-- Display Clients -->
 <h2>Your Clients</h2>
 <% if (user.clients.length > 0) { %>
   <ul>
     <% user.clients.forEach(client => { %>
       <li>
-        <a href="/users/<%= user._id %>/clients/<%= client._id %>">
+        <!-- Link each client to their show page -->
+        <a href="/users/<%= user._id %>/profile/clients/<%= client._id %>">
           <strong>Name:</strong> <%= client.name ? client.name : 'Unknown' %>
         </a>
         <br>
