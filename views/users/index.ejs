@@ -1,0 +1,43 @@
+<!-- views/users/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - The Barber Hub</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Ensure your CSS file is linked -->
+</head>
+<body>
+
+    <!-- Include Navbar -->
+    <%- include('../partials/_navbar.ejs') %>
+
+    <header class="community-header">
+        <h1>Welcome to The Barber Hub Community</h1>
+        <p>
+            The Barber Hub is more than a platform—it's a community of skilled barbers passionate about their craft. 
+            Whether you're here to connect, learn, or be inspired, you're in the right place.
+        </p>
+    </header>
+
+    <section class="barber-grid">
+        <% users.forEach(user => { %>
+            <div class="barber-card">
+                <h2><%= user.name %></h2>
+                <p><strong>Shop:</strong> <%= user.currentShop || "Independent Barber" %></p>
+                <p><strong>Specialties:</strong> <%= user.specialties ? user.specialties.join(', ') : "Not specified" %></p>
+                <p><strong>Experience:</strong> <%= user.experience %> years</p>
+                <a href="/users/<%= user._id %>" class="btn">View Profile</a>
+            </div>
+        <% }) %>
+    </section>
+
+    <% if (user) { %>
+        <a href="/users/<%= user._id %>/profile" class="back-button">Back to Profile</a>
+    <% } %>
+
+    <!-- Include Footer -->
+    <%- include('../partials/_footer.ejs') %>
+    
+</body>
+</html>
