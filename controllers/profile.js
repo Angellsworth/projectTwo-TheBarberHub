@@ -13,7 +13,7 @@ const Client = require('../models/client.js'); // Import the Client model
 */
 
 // =====================================
-// 1️⃣ SHOW FORM TO ADD A NEW CLIENT (NEW)
+// SHOW FORM TO ADD A NEW CLIENT (NEW)
 // Renders the form where the user can add a new client
 router.get('/new', async (req, res) => {
     try {
@@ -25,7 +25,7 @@ router.get('/new', async (req, res) => {
 });
 
 // =====================================
-// 2️⃣ CREATE A NEW CLIENT (CREATE)
+// CREATE A NEW CLIENT (CREATE)
 // Handles the creation of a new client and links it to the user
 router.post('/new', async (req, res) => {
     try {
@@ -53,7 +53,7 @@ router.post('/new', async (req, res) => {
 });
 
 // =====================================
-// 3️⃣ SHOW FORM FOR NEW CLIENT WITH USER ID (NEW - Alternative)
+// SHOW FORM FOR NEW CLIENT WITH USER ID (NEW - Alternative)
 // This route renders the same "new client" form, but it explicitly includes the user's ID
 router.get('/:userId/new', async (req, res) => {
     try {
@@ -65,7 +65,7 @@ router.get('/:userId/new', async (req, res) => {
 });
 
 // =====================================
-// 4️⃣ SHOW PROFILE PAGE WITH ALL CLIENTS (INDEX)
+// SHOW PROFILE PAGE WITH ALL CLIENTS (INDEX)
 // Fetches the user and displays their profile along with all their clients
 router.get('/', async (req, res) => {
     try {
@@ -80,7 +80,7 @@ router.get('/', async (req, res) => {
 });
 
 // =====================================
-// 5️⃣ SHOW A SINGLE CLIENT'S DETAILS (SHOW)
+// SHOW A SINGLE CLIENT'S DETAILS (SHOW)
 // Retrieves a single client by ID and displays their details
 router.get('/clients/:clientId', async (req, res) => {
     try {
@@ -95,7 +95,7 @@ router.get('/clients/:clientId', async (req, res) => {
 });
 
 // =====================================
-// 6️⃣ DELETE A CLIENT (DELETE)
+// DELETE A CLIENT (DELETE)
 // Deletes a specific client by ID and removes them from the user's profile
 router.delete('/clients/:clientId', async (req, res) => {
     try {
@@ -112,27 +112,19 @@ router.delete('/clients/:clientId', async (req, res) => {
 // EDIT - Show edit form for a specific client
 router.get('/clients/:clientId/edit', async (req, res) => {
     try {
-        console.log('✏️ Edit Route Hit!');
-        console.log(`🔹 Client ID: ${req.params.clientId}`);
-
         const client = await Client.findById(req.params.clientId);
         if (!client) {
-            console.log('❌ Client not found!');
             return res.status(404).send('Client not found');
         }
 
-        console.log('✅ Rendering edit.ejs with client data');
         res.render('profile/edit.ejs', { client });
     } catch (error) {
-        console.error('❌ Error fetching client for editing:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 // PUT - Update Client Details
 router.put('/clients/:clientId', async (req, res) => {
     try {
-        console.log('✏️ Edit Route Hit! Updating Client:', req.params.clientId);
-
         // Find the client and update details
         const updatedClient = await Client.findByIdAndUpdate(
             req.params.clientId,
@@ -150,13 +142,10 @@ router.put('/clients/:clientId', async (req, res) => {
         if (!updatedClient) {
             return res.status(404).send('Client not found');
         }
-
-        console.log('✅ Client Updated:', updatedClient);
         
         // Redirect back to the client's profile page
         res.redirect(`/users/${updatedClient.barber._id}/profile`);
     } catch (error) {
-        console.error('❌ Error updating client:', error);
         res.status(500).send('Internal Server Error');
     }
 });
