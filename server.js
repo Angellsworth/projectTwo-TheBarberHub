@@ -68,15 +68,6 @@ app.get('/', (req, res) => {
   }
 });
 
-// ===== Turn VIP Lounge into Community Page =====
-app.get('/vip-lounge', (req, res) => {
-  if (req.session.user) {
-    res.send(`Welcome to the party ${req.session.user.username}.`);
-  } else {
-    res.send('Sorry, no guests allowed.');
-  }
-});
-
 app.use('/auth', authController); // Public authentication routes
 app.use(isSignedIn); // Everything below this requires authentication
 
@@ -120,5 +111,5 @@ app.post('/upload-profile', async (req, res) => {
 
 // ===== Start Server =====
 app.listen(port, () => {
-  console.log(`ANGELA PANGELA! Your express app is FADING into view on port ${port}!`);
+  console.log(`ANGELINA! Your express app is FADING into view on port ${port}!`);
 });
