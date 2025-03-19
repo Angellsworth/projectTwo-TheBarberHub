@@ -2,43 +2,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <script src="/js/script.js" defer></script> 
-  <title>Sign Up</title>
+  <script src="/js/script.js" defer></script>
+  <title>Sign Up | The Barber Hub</title>
 </head>
 <body>
-  <%- include('../partials/_navbar.ejs') %>
-  <h1>Create a new account!</h1>
-  <form action="/auth/sign-up" method="POST" enctype="multipart/form-data">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required />
-  
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required />
-  
-    <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" name="confirmPassword" id="confirmPassword" required />
-  
-    <label for="name">Full Name:</label>
-    <input type="text" name="name" id="name" required>
-  
-    <label for="currentShop">Current Barber Shop:</label>
-    <input type="text" name="currentShop" id="currentShop" required>
-  
-    <label for="specialties">What are you good at?</label>
-    <input type="text" name="specialties" id="specialties" placeholder="Fades, Beard Trims, etc" />
-  
-    <label for="experience">Years of Experience</label>
-    <input type="number" name="experience" id="experience" min="0" required>
-  
-    <!-- 📸 Optional Profile Picture Upload -->
-    <label for="profilePicture">Upload Profile Picture (optional):</label>
-    <input type="file" name="profilePicture" id="profilePicture">
-  
-    <button type="submit">Sign up</button>
-  </form>
-  <%- include('../partials/_footer.ejs') %>
+
+  <%- include('../partials/_navbar.ejs') %> 
+
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1 class="auth-title">Join <span>The Barber Hub</span></h1>
+      <p class="auth-subtitle">Create an account and start tracking your craft.</p>
+
+      <form action="/auth/sign-up" method="POST" class="auth-form">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required />
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required />
+
+        <label for="name">Full Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="currentShop">Current Barber Shop:</label>
+        <input type="text" name="currentShop" id="currentShop" required>
+
+        <label for="specialties">What are you good at?</label>
+        <input type="text" name="specialties" id="specialties" placeholder="Fades, Beard Trims, etc" />
+
+        <label for="experience">Years of Experience</label>
+        <input type="number" name="experience" id="experience" min="0" required>
+
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+
+      <p class="auth-alt">Already have an account? <a href="/auth/sign-in">Sign in here</a></p>
+    </div>
+  </div>
+
+  <%- include('../partials/_footer.ejs') %> 
+
 </body>
 </html>
