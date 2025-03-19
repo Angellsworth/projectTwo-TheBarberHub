@@ -1,0 +1,63 @@
+<!-- views/about.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/script.js" defer></script> 
+    <title>About - The Barber Hub</title>
+</head>
+<body>
+    <%- include('./partials/_navbar.ejs') %>
+
+    <div class="about-container">
+        <h1 class="about-title">The Story Behind The Barber Hub</h1>
+        <p class="about-intro">
+            My name is Angela, and my journey into barbering has been anything but traditional. 
+            For over 20 years, I worked in the hair industry, specializing in women’s and men’s cuts. 
+            I loved the craft, the precision, and the ability to create something uniquely suited to each person. 
+            But for me, barbering was never just about cutting hair—it was about connection.  
+        </p>
+
+        <div class="about-story">
+            <h2>Why The Barber Hub?</h2>
+            <p>
+                Over the years, I saw a gap in the industry—barbers needed a better way to 
+                track their clients, showcase their work, and manage their services. The Barber Hub 
+                was born from that need. I wanted a place where professionals could streamline their 
+                business while keeping their craft at the center.
+            </p>
+
+            <h2>From Barbering to Tech</h2>
+            <p>
+                My journey took an unexpected turn when I decided to dive into software development. 
+                I saw firsthand how technology could bridge gaps, solve real problems, and create opportunities. 
+                So I jumped in, learning everything I could, and built The Barber Hub as a way to bring my two 
+                worlds together—barbering and tech.
+            </p>
+
+            <h2>What This Means for You</h2>
+            <p>
+                The Barber Hub isn't just another app—it's a space built by someone who knows the hustle. 
+                It's for the barbers who want to focus on their craft without getting bogged down in the details. 
+                It's for those who take pride in their work and want to give their clients the best experience possible.
+            </p>
+        </div>
+
+        <div class="about-closing">
+            <h2>Let's Build Something Great Together</h2>
+            <p>
+                Whether you've been in the industry for decades or you're just starting out, I hope The Barber Hub 
+                helps you work smarter, build stronger client relationships, and focus on what you do best—creating 
+                incredible haircuts. 
+            </p>
+            <p>
+                Thanks for being here, and welcome to The Barber Hub.
+            </p>
+        </div>
+    </div>
+
+    <%- include('./partials/_footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- views/contact.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/script.js" defer></script> 
+    <title>Contact Us - The Barber Hub</title>
+</head>
+<body>
+    <%- include('./partials/_navbar.ejs') %>
+
+    <div class="contact-container">
+        <h1 class="contact-title">Get in Touch</h1>
+        <p class="contact-subtitle">Have a question, suggestion, or need help? Reach out to us below.</p>
+
+        <form action="/contact" method="POST" class="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <h2>Other Ways to Reach Us</h2>
+            <p><strong>Email:</strong> support@thebarberhub.com</p>
+            <p><strong>Phone:</strong> (555) 123-4567</p>
+            <p><strong>Address:</strong> 123 Barber Street, Barber City, BC 12345</p>
+        </div>
+    </div>
+
+    <%- include('./partials/_footer.ejs') %>
+</body>
+</html>
