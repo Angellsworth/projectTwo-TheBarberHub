@@ -14,21 +14,21 @@ const User = require('../models/user.js'); // Import the User model
 */
 
 // =====================================
-// 1️⃣ SHOW SIGN-UP FORM (NEW)
+// SHOW SIGN-UP FORM (NEW)
 // Renders the sign-up form for new users
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
 });
 
 // =====================================
-// 2️⃣ SHOW SIGN-IN FORM (NEW)
+// SHOW SIGN-IN FORM (NEW)
 // Renders the login form for existing users
 router.get('/sign-in', (req, res) => {
   res.render('auth/sign-in.ejs');
 });
 
 // =====================================
-// 3️⃣ SIGN OUT USER (DESTROY SESSION)
+// SIGN OUT USER (DESTROY SESSION)
 // Ends the user's session and logs them out
 router.get('/sign-out', (req, res) => {
   req.session.destroy(); // Destroy the session
@@ -36,11 +36,9 @@ router.get('/sign-out', (req, res) => {
 });
 
 // =====================================
-// 4️⃣ HANDLE SIGN-UP (CREATE NEW USER)
+// HANDLE SIGN-UP (CREATE NEW USER)
 // Processes new user registration
 router.post('/sign-up', async (req, res) => {
-  console.log("Signup Route hit! Received data:", req.body);
-  
   try {
     // Check if the username is already taken
     const userInDatabase = await User.findOne({ username: req.body.username });
@@ -67,7 +65,6 @@ router.post('/sign-up', async (req, res) => {
     });
 
     await newUser.save(); // Save the user in the database
-    console.log('User Successfully created:', newUser);
 
     res.redirect('/auth/sign-in'); // Redirect to login page after signup
   } catch (error) {
@@ -77,7 +74,7 @@ router.post('/sign-up', async (req, res) => {
 });
 
 /********************************************************************/
-// 5️⃣ HANDLE SIGN-IN (LOGIN USER)
+// HANDLE SIGN-IN (LOGIN USER)
 // Processes user login
 router.post('/sign-in', async (req, res) => {
   try {
