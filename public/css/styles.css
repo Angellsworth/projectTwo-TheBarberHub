@@ -1,0 +1,239 @@
+/* 🌟 Theme Colors */
+:root {
+    --primary: #0077B6;
+    /* Brighter Barber Blue */
+    --secondary: #E63946;
+    /* Barber Red */
+    --accent: #FFFFFF;
+    /* Classic White */
+    --dark-gray: #495057;
+    /* Steel Gray */
+    --light-bg: #F8F9FA;
+    /* Slightly Off-White Background */
+    --text-dark: #333;
+    /* Dark Text */
+}
+
+/* 🌟 Fun Navbar with Bold Styling */
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary);
+    padding: 15px 25px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 4px solid var(--secondary);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* 🌟 Site Title (Now Above the Home Button) */
+.site-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+/* 🌟 Centered Navigation Links */
+.nav-center {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-center a {
+    color: var(--accent);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 🌟 Navbar Hover Effect */
+.nav-center a:hover {
+    background: var(--secondary);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* 🌟 Home Button */
+.home-button {
+    background: var(--secondary);
+    color: var(--accent);
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+    background: var(--dark-gray);
+    transform: translateY(-3px);
+}
+
+/* 🌟 Footer */
+.main-footer {
+    background: var(--dark-gray);
+    color: var(--accent);
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid var(--primary);
+}
+
+.main-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.main-footer a:hover {
+    color: var(--secondary);
+}
+
+/* 🌟 Profile Card */
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
+    background: var(--light-bg);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--accent);
+    transition: transform 0.2s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 🌟 Profile Header */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 🌟 Profile Name */
+.profile-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+/* 🌟 Profile Picture */
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    transition: transform 0.3s ease;
+}
+
+/* 🌟 Profile Details */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+}
+
+.profile-details p {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-dark);
+    width: 100%;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+/* 🌟 Center "Your Clients" Header */
+.clients-header {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--dark-gray);
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--primary);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 🌟 Clients Grid */
+.clients-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* 🌟 Client Grid Hover Effects */
+.client-card {
+    background: var(--light-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-left: 5px solid var(--primary);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    border-left: 5px solid var(--secondary);
+}
+
+/* 🌟 Client Name */
+.client-card h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+}
+
+/* 🌟 Client Details */
+.client-card p {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin: 5px 0;
+}
+
+/* 🌟 Rounded Corners for Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    font-size: 16px;
+    color: var(--dark-gray);
+    background: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+}

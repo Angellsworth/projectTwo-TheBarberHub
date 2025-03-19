@@ -9,13 +9,36 @@
   <title>The Barber Hub</title>
 </head>
 <body>
-  <%- include('./partials/_navbar.ejs') %> <!-- Navbar added here -->
-  <h1>Welcome to The Barber Hub</h1>
-  <p>Track your clients, showcase your best cuts, and manage your services.</p>
-  <a href="/auth/sign-up">Sign up</a>
-  <a href="/auth/sign-in">Sign in</a>
-    <!-- maybe turn vip lounge into community page -->
-  <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
+  
+  <!-- 🌟 Navbar -->
+  <%- include('./partials/_navbar.ejs') %>
+
+  <!-- 🌟 Hero Section -->
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to <span>The Barber Hub</span></h1>
+      <p class="hero-tagline">Track your clients, showcase your best cuts, and manage your services.</p>
+
+      <!-- 📌 CTA Buttons -->
+      <div class="cta-buttons">
+        <a href="/auth/sign-up" class="btn-primary">Sign Up</a>
+        <a href="/auth/sign-in" class="btn-outline">Sign In</a>
+      </div>
+
+      <!-- 🌟 VIP Lounge -->
+      <p class="vip-link">
+        <a href="/vip-lounge">💈 Get into the VIP Users Only Lounge! 💈</a>
+      </p>
+    </div>
+
+    <!-- 🌟 Barber Shop Image -->
+    <div class="hero-image">
+      <img src="public/images/barbershop.jpg" alt="Barber Shop">
+    </div>
+  </div>
+
+  <!-- 🌟 Footer -->
   <%- include('./partials/_footer.ejs') %>
+
 </body>
 </html>
