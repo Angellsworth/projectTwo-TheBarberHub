@@ -1,10 +1,12 @@
 <!-- views/partials/_navbar.ejs -->
 <nav class="main-nav">
     <h1 class="site-title">The Barber Hub</h1>
+   
     <div class="nav-links">
         <a href="/" class="nav-button">Home</a>
         <% if(user) { %>
             <a href="/users/<%= user._id %>/profile" class="nav-button">Your Profile</a>
+            <a href="/users" class="nav-button">Community</a> <!-- Added Community Link -->
             <a href="/auth/sign-out" class="nav-button">Sign Out</a>
         <% } else { %>
             <a href="/auth/sign-in" class="nav-button">Sign In</a>
