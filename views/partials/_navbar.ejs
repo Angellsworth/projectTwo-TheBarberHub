@@ -1,17 +1,14 @@
 <!-- views/partials/_navbar.ejs -->
 <nav class="main-nav">
-  <div class="nav-left">
-      <h1 class="site-title">The Barber Hub</h1> <!-- 🌟 New Site Title -->
-      <a href="/" class="home-button">Home</a>
-  </div>
-  <div class="nav-center">
-      <% if(user) { %>
-          <a href="/users/<%= user._id %>/profile">Your Profile</a>
-          <a href="/users/<%= user._id %>/clients">Manage Clients</a>
-          <a href="/auth/sign-out">Sign Out</a>
-      <% } else { %>
-          <a href="/auth/sign-in">Sign In</a>
-          <a href="/auth/sign-up">Sign Up</a>
-      <% } %>
-  </div>
+    <h1 class="site-title">The Barber Hub</h1>
+    <div class="nav-links">
+        <a href="/" class="nav-button">Home</a>
+        <% if(user) { %>
+            <a href="/users/<%= user._id %>/profile" class="nav-button">Your Profile</a>
+            <a href="/auth/sign-out" class="nav-button">Sign Out</a>
+        <% } else { %>
+            <a href="/auth/sign-in" class="nav-button">Sign In</a>
+            <a href="/auth/sign-up" class="nav-button">Sign Up</a>
+        <% } %>
+    </div>
 </nav>
