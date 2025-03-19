@@ -1,28 +1,28 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:wght@300..800&display=swap');
 
-/*========== ROOT THEME COLORS ============*/
+/*========== ROOT THEME COLORS ~ All Pages ============*/
 :root {
     --primary: #f8edcc;
-    /* Light Background */
     --secondary: #be8b5b;
-    /* Warm Leather */
     --accent: #3b231ed0;
-    /* Dark Espresso */
     --border: #804a31;
-    /* Rich Mahogany */
     --highlight: #aa9476;
-    /* Classic Tan */
     --navy: #304657;
-    /* Navy Slate */
     --text-light: #fffdf7;
-    /* Brighter White */
     --complementary: #7c8c6f;
-    /* Olive Green (Edit/Delete Buttons) */
 }
 
-/*========== BASE STYLES ============*/
+/*========== BASE STYLES ~ All Pages ============*/
+html,
 body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(/images/hero-barbershop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     background-color: var(--text-light);
     color: var(--accent);
     margin: 0;
@@ -30,7 +30,13 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
-/*========== NAVIGATION ============*/
+.main-content {
+    flex: 1;
+    padding-top: 120px;
+    padding-bottom: 140px;
+}
+
+/*========== NAVIGATION ~ All Pages ============*/
 .main-nav {
     width: 100%;
     background: var(--navy);
@@ -39,7 +45,9 @@ body {
     align-items: center;
     padding: 15px 40px;
     height: 100px;
+    position: relative;
     border-bottom: 3px solid var(--secondary);
+    z-index: 1000;
 }
 
 /* Site Title */
@@ -70,12 +78,11 @@ body {
     transition: background 0.3s ease-in-out;
 }
 
-/* Navigation Hover Effect */
 .nav-button:hover {
     background: var(--border);
 }
 
-/*========== HERO SECTION ============*/
+/*========== HERO SECTION ~ LANDING PAGE ============*/
 .hero-overlay {
     background: var(--accent);
     padding: 50px;
@@ -86,7 +93,6 @@ body {
     box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Hero Title */
 .hero-overlay h2 {
     font-family: "Lobster Two", sans-serif;
     font-size: 2rem;
@@ -95,14 +101,12 @@ body {
     letter-spacing: 1px;
 }
 
-/* Hero Text */
 .hero-overlay p {
     font-size: 1rem;
     color: var(--primary);
     margin-bottom: 20px;
 }
 
-/* CTA Button */
 .btn {
     background: var(--primary);
     color: var(--accent);
@@ -120,141 +124,14 @@ body {
     color: var(--text-light);
 }
 
-/*========== FOOTER ============*/
-.main-footer {
-    background: var(--navy);
-    color: var(--text-light);
-    text-align: center;
-    padding: 20px;
-    border-top: 4px solid var(--primary);
-}
-
-.main-footer a {
-    color: var(--primary);
-    text-decoration: none;
-    margin: 0 15px;
-    transition: color 0.3s;
-}
-
-.main-footer a:hover {
-    color: var(--secondary);
-}
-
-/*========== PROFILE CARD ============*/
-.container {
-    max-width: 850px;
-    margin: 30px auto;
-    padding: 25px;
-    background: var(--text-light);
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border);
-    transition: transform 0.2s ease-in-out;
-}
-
-/* Profile Header */
-.profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-/* Profile Name */
-.profile-header h1 {
-    font-family: "Lobster Two", sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--accent);
-    margin: 0;
-}
-
-
-
-/* Profile Details */
-.profile-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 0;
-}
-
-.profile-details p {
-    font-size: 18px;
-    font-weight: 500;
-    width: 100%;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-}
-
-/*========== CLIENTS SECTION ============*/
-/* Clients Header */
-.clients-header {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 1.2px;
-    color: var(--accent);
-    padding-bottom: 8px;
-    border-bottom: 3px solid var(--primary);
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Clients Grid */
-.clients-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-}
-
-/* Client Card */
-.client-card {
-    background: var(--text-light);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    border-left: 5px solid var(--primary);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.client-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-    border-left: 5px solid var(--secondary);
-}
-
-/*========== FORMS ============*/
-/* Form Labels */
-label {
-    font-weight: bold;
-    color: var(--accent);
-}
-
-/*  Form Inputs */
-input,
-textarea,
-select {
-    background: var(--primary);
-    color: var(--accent);
-    border: 1px solid var(--border);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/*========== SIGN IN & SIGN UP FORMS ==========*/
+/*========== FORMS ~ SIGN IN & SIGN UP  ==========*/
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
     padding: 20px;
+    margin: 100px;
 }
 
 .auth-box {
@@ -303,26 +180,14 @@ select {
     border: 1px solid var(--border);
     border-radius: 5px;
     background: #f9f4e5;
-    /* Lightened input background */
     color: var(--accent);
-    /* Darker text for contrast */
     font-family: "Open Sans", sans-serif;
     transition: background 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* 🌟 Input Lightens on Hover */
 .auth-form input:hover {
     background: rgba(255, 255, 255, 1);
-    /* Fully white on hover */
 }
-
-/* 🌟 Input Stays Light when Active */
-/* .auth-form input:focus,
-.auth-form input:active {
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
-    outline: none;
-} */
 
 .auth-alt {
     font-size: 14px;
@@ -340,10 +205,9 @@ select {
     text-decoration: underline;
 }
 
-/* USER CARD - BOLDER OUTLINE */
+/* USER CARD */
 .user-card {
     border: 3px solid var(--border);
-    /* Bolder Outline */
     padding: 20px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease-in-out;
@@ -354,16 +218,57 @@ select {
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* USER NAME - BIGGER */
 .profile-header h1 {
     font-size: 40px;
     font-weight: bold;
     color: var(--accent);
 }
 
-/*========== CLIENTS ============*/
+/*========== PROFILE CARD ============*/
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
+    background: var(--text-light);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease-in-out;
+}
 
-/* CLIENT CONTAINER - ADJUST SPACING */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent);
+    margin: 0;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+}
+
+.profile-details p {
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+
+/*========== CLIENTS ~ Views.Index.ejs  ============*/
 .clients-container {
     display: flex;
     flex-wrap: wrap;
@@ -371,11 +276,9 @@ select {
     align-items: flex-start;
     padding: 20px;
     gap: 0px;
-    /* Removes default spacing between cards */
     position: relative;
 }
 
-/* CLIENT CARD - OVERLAP EFFECT */
 .client-card {
     background: var(--text-light);
     border-radius: 12px;
@@ -392,32 +295,26 @@ select {
     z-index: 1;
 }
 
-/* CLIENT CARDS STACKED */
 .client-card:nth-child(even) {
     margin-left: -120px;
-    /* Overlapping effect */
 }
 
 .client-card:nth-child(odd) {
     margin-right: -120px;
-    /* Overlapping effect */
 }
 
-/* HOVER EFFECT - SLIDE LEFT & COME TO FRONT */
 .client-card:hover {
     transform: translateX(-40px) scale(1.05);
     z-index: 10;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* CLIENT NAME */
 .client-name {
     text-decoration: none;
     color: var(--accent);
     font-weight: bold;
 }
 
-/* CLIENT NAME - SLIDING UNDERLINE ON HOVER */
 .client-name h3 {
     display: inline-block;
     position: relative;
@@ -439,7 +336,6 @@ select {
     width: 100%;
 }
 
-/* SMALLER BUTTONS */
 .small-btn {
     font-size: 14px;
     padding: 6px 10px;
@@ -456,7 +352,6 @@ select {
     color: var(--text-light);
 }
 
-/* CLIENT DETAILS */
 .client-card p {
     font-size: 14px;
     color: var(--accent);
@@ -464,7 +359,6 @@ select {
     line-height: 1.4;
 }
 
-/* CLIENT BUTTON CONTAINER - ALIGN BUTTONS NEATLY */
 .client-buttons {
     display: flex;
     justify-content: space-between;
@@ -472,7 +366,7 @@ select {
     margin-top: 10px;
 }
 
-/*========== ADD CLIENT FORM ============*/
+/*========== FORM ~ ADD CLIENT  ============*/
 .client-form-container {
     max-width: 600px;
     margin: 40px auto;
@@ -484,7 +378,6 @@ select {
     text-align: center;
 }
 
-/* Form Header */
 .client-form-container h1 {
     font-family: "Lobster Two", sans-serif;
     font-size: 36px;
@@ -494,7 +387,6 @@ select {
     letter-spacing: 1px;
 }
 
-/* Form Labels */
 .client-form-container label {
     display: block;
     text-align: left;
@@ -504,7 +396,6 @@ select {
     margin-top: 10px;
 }
 
-/* Form Inputs */
 .client-form-container input,
 .client-form-container select,
 .client-form-container textarea {
@@ -519,7 +410,6 @@ select {
     transition: all 0.3s ease-in-out;
 }
 
-/* Form Input Hover & Focus */
 .client-form-container input:hover,
 .client-form-container select:hover,
 .client-form-container textarea:hover,
@@ -531,89 +421,7 @@ select {
     outline: none;
 }
 
-
-/*========== ADD CLIENT FORM ============*/
-.client-form-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 25px;
-    background: var(--text-light);
-    border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-    border: 2px solid var(--border);
-    text-align: center;
-}
-
-/* Form Header */
-.client-form-container h1 {
-    font-family: "Lobster Two", sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    color: var(--accent);
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-/* Form Labels */
-.client-form-container label {
-    display: block;
-    text-align: left;
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--accent);
-    margin-top: 10px;
-}
-
-/* Form Inputs */
-.client-form-container input,
-.client-form-container select,
-.client-form-container textarea {
-    width: 90%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 2px solid var(--border);
-    border-radius: 6px;
-    font-size: 16px;
-    background: #b3a28d;
-    color: var(--accent);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Form Input Hover & Focus */
-.client-form-container input:hover,
-.client-form-container select:hover,
-.client-form-container textarea:hover,
-.client-form-container input:focus,
-.client-form-container select:focus,
-.client-form-container textarea:focus {
-    background: var(--primary);
-    border-color: var(--secondary);
-    outline: none;
-}
-
-/* Submit Button */
-.client-form-container button {
-    background: var(--secondary);
-    color: var(--text-light);
-    padding: 12px 20px;
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s ease-in-out;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.client-form-container button:hover {
-    background: var(--border);
-    color: var(--text-light);
-}
-
-/*========== CLIENT SHOW PAGE ============*/
-
-/* Main Container */
+/*========== CLIENT ~ SHOW PAGE ============*/
 .client-profile-container {
     max-width: 600px;
     margin: 40px auto;
@@ -625,7 +433,6 @@ select {
     text-align: center;
 }
 
-/* Client Name Title */
 .client-name-title {
     font-family: "Lobster Two", sans-serif;
     font-size: 36px;
@@ -635,7 +442,6 @@ select {
     letter-spacing: 1px;
 }
 
-/* Client Details */
 .client-details {
     text-align: left;
     font-size: 16px;
@@ -650,7 +456,6 @@ select {
     line-height: 1.4;
 }
 
-/* Appointments */
 .appointment-title {
     font-family: "Lobster Two", sans-serif;
     font-size: 24px;
@@ -673,14 +478,12 @@ select {
     margin: 5px 0;
 }
 
-/* If No Appointments */
 .no-appointments {
     font-size: 16px;
     font-style: italic;
     color: var(--border);
 }
 
-/* Buttons */
 .client-actions {
     display: flex;
     justify-content: center;
@@ -720,7 +523,6 @@ select {
     background: var(--accent);
 }
 
-/* Back Link */
 .back-link {
     display: inline-block;
     margin-top: 20px;
@@ -734,9 +536,7 @@ select {
     text-decoration: underline;
 }
 
-/*========== CLIENT EDIT PAGE ============*/
-
-/* Main Edit Container */
+/*========== CLIENT ~ EDIT PAGE ============*/
 .edit-client-container {
     max-width: 600px;
     margin: 40px auto;
@@ -748,7 +548,6 @@ select {
     text-align: center;
 }
 
-/* Title */
 .edit-client-title {
     font-family: "Lobster Two", sans-serif;
     font-size: 32px;
@@ -758,7 +557,6 @@ select {
     letter-spacing: 1px;
 }
 
-/* Edit Form */
 .edit-client-form {
     display: flex;
     flex-direction: column;
@@ -766,14 +564,12 @@ select {
     text-align: left;
 }
 
-/* Labels */
 .edit-client-form label {
     font-size: 16px;
     font-weight: bold;
     color: var(--accent);
 }
 
-/* Inputs & Selects */
 .edit-client-form input,
 .edit-client-form select,
 .edit-client-form textarea {
@@ -788,7 +584,6 @@ select {
     transition: all 0.3s ease-in-out;
 }
 
-/* Inputs & Selects Hover and Focus */
 .edit-client-form input:hover,
 .edit-client-form select:hover,
 .edit-client-form textarea:hover,
@@ -800,7 +595,6 @@ select {
     outline: none;
 }
 
-/* Radio Buttons */
 .radio-group {
     display: flex;
     justify-content: center;
@@ -812,17 +606,14 @@ select {
     font-size: 16px;
 }
 
-/* Waxing Options */
 .waxing-options {
     display: none;
 }
 
-/* Client Notes */
 .client-notes {
     min-height: 100px;
 }
 
-/* Save Button */
 .save-btn {
     background: var(--secondary);
     color: var(--text-light);
@@ -839,24 +630,101 @@ select {
     background: var(--border);
 }
 
-/*========== FOOTER ============*/
-.main-footer {
-    background: var(--navy);
-    color: var(--text-light);
+/* ========== COMMUNITY PAGE ============ */
+.community-header {
     text-align: center;
-    padding: 20px;
-    border-top: 4px solid var(--primary);
+    background: var(--accent);
+    color: var(--text-light);
+    padding: 50px 20px;
+    border-bottom: 3px solid var(--border);
 }
 
-.main-footer a {
+.community-header h1 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
     color: var(--primary);
-    text-decoration: none;
-    margin: 0 15px;
-    transition: color 0.3s;
+    margin-bottom: 10px;
 }
 
-.main-footer a:hover {
-    color: var(--secondary);
+.community-header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Barber Grid */
+.barber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    justify-content: center;
+}
+
+/* Barber Card */
+.barber-card {
+    background: var(--primary);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--border);
+    transition: transform 0.3s ease-in-out;
+}
+
+.barber-card h2 {
+    font-size: 1.8rem;
+    font-family: "Lobster Two", sans-serif;
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+.barber-card p {
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.barber-card:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Profile Link */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: var(--secondary);
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: var(--border);
+}
+
+/* Back to Profile Button */
+.back-button {
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    width: fit-content;
+    padding: 12px 20px;
+    background: var(--highlight);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background: var(--border);
+    color: var(--text-light);
 }
 
 /*========== FAQ PAGE ============*/
@@ -1037,4 +905,26 @@ select {
     font-size: 16px;
     color: var(--accent);
     line-height: 1.5;
+}
+
+/*========== FOOTER ~ All Pages ============*/
+.main-footer {
+    background: var(--navy);
+    color: var(--text-light);
+    text-align: center;
+    width: 100%;
+    height: 120px;
+    padding: 20px;
+    border-top: 4px solid var(--primary);
+}
+
+.main-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.main-footer a:hover {
+    color: var(--secondary);
 }
