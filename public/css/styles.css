@@ -1,89 +1,129 @@
-/* 🌟 Theme Colors */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:wght@300..800&display=swap');
+
+/*========== ROOT THEME COLORS ============*/
 :root {
-    --primary: #0077B6;
-    /* Brighter Barber Blue */
-    --secondary: #E63946;
-    /* Barber Red */
-    --accent: #FFFFFF;
-    /* Classic White */
-    --dark-gray: #495057;
-    /* Steel Gray */
-    --light-bg: #F8F9FA;
-    /* Slightly Off-White Background */
-    --text-dark: #333;
-    /* Dark Text */
+    --primary: #f8edcc;
+    /* Light Background */
+    --secondary: #be8b5b;
+    /* Warm Leather */
+    --accent: #3b231ed0;
+    /* Dark Espresso */
+    --border: #804a31;
+    /* Rich Mahogany */
+    --highlight: #aa9476;
+    /* Classic Tan */
+    --navy: #304657;
+    /* Navy Slate */
+    --text-light: #fffdf7;
+    /* Brighter White */
+    --complementary: #7c8c6f;
+    /* Olive Green (Edit/Delete Buttons) */
 }
 
-/* 🌟 Fun Navbar with Bold Styling */
+/*========== BASE STYLES ============*/
+body {
+    background-color: var(--text-light);
+    color: var(--accent);
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+/*========== NAVIGATION ============*/
 .main-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--primary);
-    padding: 15px 25px;
-    position: sticky;
-    top: 0;
     width: 100%;
-    z-index: 100;
-    border-bottom: 4px solid var(--secondary);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* 🌟 Site Title (Now Above the Home Button) */
-.site-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
-}
-
-/* 🌟 Centered Navigation Links */
-.nav-center {
+    background: var(--navy);
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    height: 100px;
+    border-bottom: 3px solid var(--secondary);
 }
 
-.nav-center a {
-    color: var(--accent);
+/* Site Title */
+.site-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Navigation Links Group */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-right: 100px;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    background: var(--secondary);
+    color: var(--text-light);
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s ease-in-out;
 }
 
-/* 🌟 Navbar Hover Effect */
-.nav-center a:hover {
-    background: var(--secondary);
-    color: var(--accent);
-    transform: translateY(-2px);
+/* Navigation Hover Effect */
+.nav-button:hover {
+    background: var(--border);
 }
 
-/* 🌟 Home Button */
-.home-button {
-    background: var(--secondary);
+/*========== HERO SECTION ============*/
+.hero-overlay {
+    background: var(--accent);
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 120px auto;
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero Title */
+.hero-overlay h2 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+/* Hero Text */
+.hero-overlay p {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* CTA Button */
+.btn {
+    background: var(--primary);
     color: var(--accent);
     padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
+    border: 3px solid var(--accent);
+    border-radius: 25px;
     font-weight: bold;
-    transition: all 0.3s;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: 0.3s;
+    text-transform: uppercase;
 }
 
-.home-button:hover {
-    background: var(--dark-gray);
-    transform: translateY(-3px);
+.btn:hover {
+    background: var(--border);
+    color: var(--text-light);
 }
 
-/* 🌟 Footer */
+/*========== FOOTER ============*/
 .main-footer {
-    background: var(--dark-gray);
-    color: var(--accent);
+    background: var(--navy);
+    color: var(--text-light);
     text-align: center;
     padding: 20px;
     border-top: 4px solid var(--primary);
@@ -100,24 +140,19 @@
     color: var(--secondary);
 }
 
-/* 🌟 Profile Card */
+/*========== PROFILE CARD ============*/
 .container {
     max-width: 850px;
     margin: 30px auto;
     padding: 25px;
-    background: var(--light-bg);
+    background: var(--text-light);
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--accent);
+    border: 1px solid var(--border);
     transition: transform 0.2s ease-in-out;
 }
 
-.container:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* 🌟 Profile Header */
+/* Profile Header */
 .profile-header {
     display: flex;
     justify-content: space-between;
@@ -125,24 +160,18 @@
     margin-bottom: 20px;
 }
 
-/* 🌟 Profile Name */
+/* Profile Name */
 .profile-header h1 {
+    font-family: "Lobster Two", sans-serif;
     font-size: 28px;
     font-weight: bold;
-    color: var(--dark-gray);
+    color: var(--accent);
     margin: 0;
 }
 
-/* 🌟 Profile Picture */
-.profile-picture {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid var(--primary);
-    transition: transform 0.3s ease;
-}
 
-/* 🌟 Profile Details */
+
+/* Profile Details */
 .profile-details {
     display: flex;
     flex-direction: column;
@@ -153,22 +182,21 @@
 .profile-details p {
     font-size: 18px;
     font-weight: 500;
-    color: var(--text-dark);
     width: 100%;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 8px;
     margin-bottom: 8px;
 }
 
-/* 🌟 Center "Your Clients" Header */
+/*========== CLIENTS SECTION ============*/
+/* Clients Header */
 .clients-header {
     text-align: center;
     margin-top: 30px;
     font-size: 28px;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 1.2px;
-    color: var(--dark-gray);
+    color: var(--accent);
     padding-bottom: 8px;
     border-bottom: 3px solid var(--primary);
     width: fit-content;
@@ -176,7 +204,7 @@
     margin-right: auto;
 }
 
-/* 🌟 Clients Grid */
+/* Clients Grid */
 .clients-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -185,9 +213,9 @@
     justify-content: center;
 }
 
-/* 🌟 Client Grid Hover Effects */
+/* Client Card */
 .client-card {
-    background: var(--light-bg);
+    background: var(--text-light);
     border-radius: 12px;
     padding: 20px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
@@ -202,38 +230,811 @@
     border-left: 5px solid var(--secondary);
 }
 
-/* 🌟 Client Name */
-.client-card h3 {
-    font-size: 22px;
+/*========== FORMS ============*/
+/* Form Labels */
+label {
     font-weight: bold;
-    color: var(--dark-gray);
+    color: var(--accent);
+}
+
+/*  Form Inputs */
+input,
+textarea,
+select {
+    background: var(--primary);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*========== SIGN IN & SIGN UP FORMS ==========*/
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.auth-box {
+    background: var(--primary);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.auth-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent);
     margin-bottom: 10px;
 }
 
-/* 🌟 Client Details */
-.client-card p {
-    font-size: 16px;
-    color: var(--text-dark);
-    margin: 5px 0;
+.auth-title span {
+    color: var(--secondary);
 }
 
-/* 🌟 Rounded Corners for Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 18px;
-    font-size: 16px;
-    color: var(--dark-gray);
-    background: transparent;
-    border: 2px solid var(--primary);
-    border-radius: 8px;
-    text-decoration: none;
-    margin: 10px;
+.auth-subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    color: var(--border);
+    margin-bottom: 20px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form label {
+    font-family: "Open Sans", sans-serif;
     font-weight: bold;
+    color: var(--accent);
+}
+
+.auth-form input {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: #f9f4e5;
+    /* Lightened input background */
+    color: var(--accent);
+    /* Darker text for contrast */
+    font-family: "Open Sans", sans-serif;
+    transition: background 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* 🌟 Input Lightens on Hover */
+.auth-form input:hover {
+    background: rgba(255, 255, 255, 1);
+    /* Fully white on hover */
+}
+
+/* 🌟 Input Stays Light when Active */
+/* .auth-form input:focus,
+.auth-form input:active {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
+    outline: none;
+} */
+
+.auth-alt {
+    font-size: 14px;
+    color: var(--border);
+    margin-top: 15px;
+}
+
+.auth-alt a {
+    color: var(--secondary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-alt a:hover {
+    text-decoration: underline;
+}
+
+/* USER CARD - BOLDER OUTLINE */
+.user-card {
+    border: 3px solid var(--border);
+    /* Bolder Outline */
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease-in-out;
+}
+
+.user-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* USER NAME - BIGGER */
+.profile-header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/*========== CLIENTS ============*/
+
+/* CLIENT CONTAINER - ADJUST SPACING */
+.clients-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 0px;
+    /* Removes default spacing between cards */
+    position: relative;
+}
+
+/* CLIENT CARD - OVERLAP EFFECT */
+.client-card {
+    background: var(--text-light);
+    border-radius: 12px;
+    padding: 15px;
+    width: 280px;
+    max-width: 90%;
+    height: auto;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-left: 4px solid var(--primary);
+    position: relative;
+    transform: translateX(0px);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, z-index 0.3s ease-in-out;
+    z-index: 1;
+}
+
+/* CLIENT CARDS STACKED */
+.client-card:nth-child(even) {
+    margin-left: -120px;
+    /* Overlapping effect */
+}
+
+.client-card:nth-child(odd) {
+    margin-right: -120px;
+    /* Overlapping effect */
+}
+
+/* HOVER EFFECT - SLIDE LEFT & COME TO FRONT */
+.client-card:hover {
+    transform: translateX(-40px) scale(1.05);
+    z-index: 10;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* CLIENT NAME */
+.client-name {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* CLIENT NAME - SLIDING UNDERLINE ON HOVER */
+.client-name h3 {
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+}
+
+.client-name h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--border);
+    transition: width 0.3s ease-in-out;
+}
+
+.client-name:hover h3::after {
+    width: 100%;
+}
+
+/* SMALLER BUTTONS */
+.small-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+    background: var(--secondary);
+    color: var(--text-light);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.small-btn:hover {
+    background: var(--border);
+    color: var(--text-light);
+}
+
+/* CLIENT DETAILS */
+.client-card p {
+    font-size: 14px;
+    color: var(--accent);
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+/* CLIENT BUTTON CONTAINER - ALIGN BUTTONS NEATLY */
+.client-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+/*========== ADD CLIENT FORM ============*/
+.client-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--border);
+    text-align: center;
+}
+
+/* Form Header */
+.client-form-container h1 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Form Labels */
+.client-form-container label {
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-top: 10px;
+}
+
+/* Form Inputs */
+.client-form-container input,
+.client-form-container select,
+.client-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+    background: var(--highlight);
+    color: var(--accent);
     transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
+/* Form Input Hover & Focus */
+.client-form-container input:hover,
+.client-form-container select:hover,
+.client-form-container textarea:hover,
+.client-form-container input:focus,
+.client-form-container select:focus,
+.client-form-container textarea:focus {
     background: var(--primary);
-    color: white;
-    transform: scale(1.05);
+    border-color: var(--secondary);
+    outline: none;
+}
+
+
+/*========== ADD CLIENT FORM ============*/
+.client-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--border);
+    text-align: center;
+}
+
+/* Form Header */
+.client-form-container h1 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Form Labels */
+.client-form-container label {
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-top: 10px;
+}
+
+/* Form Inputs */
+.client-form-container input,
+.client-form-container select,
+.client-form-container textarea {
+    width: 90%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+    background: #b3a28d;
+    color: var(--accent);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Form Input Hover & Focus */
+.client-form-container input:hover,
+.client-form-container select:hover,
+.client-form-container textarea:hover,
+.client-form-container input:focus,
+.client-form-container select:focus,
+.client-form-container textarea:focus {
+    background: var(--primary);
+    border-color: var(--secondary);
+    outline: none;
+}
+
+/* Submit Button */
+.client-form-container button {
+    background: var(--secondary);
+    color: var(--text-light);
+    padding: 12px 20px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.client-form-container button:hover {
+    background: var(--border);
+    color: var(--text-light);
+}
+
+/*========== CLIENT SHOW PAGE ============*/
+
+/* Main Container */
+.client-profile-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--border);
+    text-align: center;
+}
+
+/* Client Name Title */
+.client-name-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Client Details */
+.client-details {
+    text-align: left;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    border-top: 2px solid var(--border);
+    padding-top: 15px;
+}
+
+.client-details p {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/* Appointments */
+.appointment-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 24px;
+    color: var(--border);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--secondary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.appointment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.appointment-item {
+    background: var(--highlight);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+/* If No Appointments */
+.no-appointments {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--border);
+}
+
+/* Buttons */
+.client-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.edit-btn,
+.delete-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.edit-btn {
+    background: var(--secondary);
+    color: var(--text-light);
+}
+
+.edit-btn:hover {
+    background: var(--border);
+}
+
+.delete-btn {
+    background: var(--complementary);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: var(--accent);
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/*========== CLIENT EDIT PAGE ============*/
+
+/* Main Edit Container */
+.edit-client-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--border);
+    text-align: center;
+}
+
+/* Title */
+.edit-client-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Edit Form */
+.edit-client-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+/* Labels */
+.edit-client-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* Inputs & Selects */
+.edit-client-form input,
+.edit-client-form select,
+.edit-client-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+    background: var(--highlight);
+    color: var(--accent);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Inputs & Selects Hover and Focus */
+.edit-client-form input:hover,
+.edit-client-form select:hover,
+.edit-client-form textarea:hover,
+.edit-client-form input:focus,
+.edit-client-form select:focus,
+.edit-client-form textarea:focus {
+    background: var(--primary);
+    border-color: var(--secondary);
+    outline: none;
+}
+
+/* Radio Buttons */
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    font-size: 16px;
+}
+
+/* Waxing Options */
+.waxing-options {
+    display: none;
+}
+
+/* Client Notes */
+.client-notes {
+    min-height: 100px;
+}
+
+/* Save Button */
+.save-btn {
+    background: var(--secondary);
+    color: var(--text-light);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    background: var(--border);
+}
+
+/*========== FOOTER ============*/
+.main-footer {
+    background: var(--navy);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid var(--primary);
+}
+
+.main-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.main-footer a:hover {
+    color: var(--secondary);
+}
+
+/*========== FAQ PAGE ============*/
+.faq-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--text-light);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--border);
+}
+
+.faq-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 22px;
+    color: var(--border);
+}
+
+.faq-answer {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: var(--accent);
+    line-height: 1.5;
+}
+
+/*========== CONTACT PAGE ============*/
+.contact-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--border);
+    text-align: center;
+}
+
+.contact-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    color: var(--border);
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.contact-form label {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+    background: var(--highlight);
+    color: var(--accent);
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background: var(--primary);
+    border-color: var(--secondary);
+    outline: none;
+}
+
+/* CONTACT INFO */
+.contact-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 24px;
+    color: var(--border);
+}
+
+.contact-info p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: var(--accent);
+    margin: 5px 0;
+}
+
+/*========== ABOUT PAGE ============*/
+.about-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--border);
+    text-align: center;
+}
+
+.about-title {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.about-intro {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    color: var(--border);
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.about-story {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.about-story h2 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 28px;
+    color: var(--border);
+    margin-bottom: 10px;
+}
+
+.about-story p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: var(--accent);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.about-closing h2 {
+    font-family: "Lobster Two", sans-serif;
+    font-size: 28px;
+    color: var(--border);
+    margin-bottom: 10px;
+}
+
+.about-closing p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: var(--accent);
+    line-height: 1.5;
 }
