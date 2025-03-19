@@ -4,41 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="/js/script.js" defer></script> 
   <title>The Barber Hub</title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  
-  <!-- 🌟 Navbar -->
-  <%- include('./partials/_navbar.ejs') %>
 
-  <!-- 🌟 Hero Section -->
-  <div class="hero-container">
-    <div class="hero-content">
-      <h1 class="hero-title">Welcome to <span>The Barber Hub</span></h1>
-      <p class="hero-tagline">Track your clients, showcase your best cuts, and manage your services.</p>
+  <!-- Navbar -->
+  <%- include('./partials/_navbar.ejs') %> 
 
-      <!-- 📌 CTA Buttons -->
-      <div class="cta-buttons">
-        <a href="/auth/sign-up" class="btn-primary">Sign Up</a>
-        <a href="/auth/sign-in" class="btn-outline">Sign In</a>
-      </div>
-
-      <!-- 🌟 VIP Lounge -->
-      <p class="vip-link">
-        <a href="/vip-lounge">💈 Get into the VIP Users Only Lounge! 💈</a>
-      </p>
-    </div>
-
-    <!-- 🌟 Barber Shop Image -->
-    <div class="hero-image">
-      <img src="public/images/barbershop.jpg" alt="Barber Shop">
-    </div>
+  <!-- Hero Section -->
+<header class="hero">
+  <div class="hero-overlay">
+      <h2>The Art of the Cut. <br> The Precision of the Blade.</h2>
+      <p>Barbering isn't just a service—it's an art. The steady hand, the sharp eye, the perfect fade. Every client who sits in your chair is trusting you to shape their style, to refine their look, to send them back into the world a little sharper than before.</p>
+      <p>The Barber Hub is built for professionals who take pride in their craft. Track your clients, manage your schedule, and build a reputation that speaks for itself.</p>
+      <a href="/auth/sign-up" class="btn">Get Started</a>
   </div>
+</header>
 
-  <!-- 🌟 Footer -->
-  <%- include('./partials/_footer.ejs') %>
+  <!-- Footer -->
+  <%- include('./partials/_footer.ejs') %> 
 
 </body>
 </html>
