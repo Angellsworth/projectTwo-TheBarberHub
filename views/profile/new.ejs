@@ -1,5 +1,4 @@
 <!-- views/profile/new.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,70 +11,71 @@
 <body>
   <%- include('../partials/_navbar.ejs') %>
   
-  <h1>Add a New Client</h1>
+  <div class="client-form-container">
+    <h1>Add a New Client</h1>
 
-  <!-- views/profile/new.ejs -->
-<form action="/users/<%= user._id %>/profile/new" method="POST">
-  
-  <!-- Client Name -->
-  <label for="name">Client Name:</label>
-  <input type="text" name="name" id="name" required />
+    <form action="/users/<%= user._id %>/profile/new" method="POST">
+      <!-- Client Name -->
+      <label for="name">Client Name:</label>
+      <input type="text" name="name" id="name" required />
 
-  <!-- Preferred Cut -->
-  <label for="cutsReceived">Preferred Cut:</label>
-  <select name="cutsReceived" id="cutsReceived" required>
-    <option value="basic cut">Basic Cut</option>
-    <option value="bald fade">Bald Fade</option>
-    <option value="flat top">Flat Top</option>
-    <option value="blow out taper">Blow Out Taper</option>
-    <option value="head shave">Head Shave</option>
-    <option value="long hair">Long Hair</option>
-  </select>
+      <!-- Preferred Cut -->
+      <label for="cutsReceived">Preferred Cut:</label>
+      <select name="cutsReceived" id="cutsReceived" required>
+        <option value="basic cut">Basic Cut</option>
+        <option value="bald fade">Bald Fade</option>
+        <option value="flat top">Flat Top</option>
+        <option value="blow out taper">Blow Out Taper</option>
+        <option value="head shave">Head Shave</option>
+        <option value="long hair">Long Hair</option>
+      </select>
 
-  <!-- Beard Preferences -->
-  <fieldset>
-    <legend>Beard Preferences</legend>
-    <input type="radio" id="noBeard" name="beardPreference" value="none" checked>
-    <label for="noBeard">No Beard</label>
+      <!-- Beard Preferences -->
+      <fieldset>
+        <legend>Beard Preferences</legend>
+        <input type="radio" id="noBeard" name="beardPreference" value="none" checked>
+        <label for="noBeard">No Beard</label>
 
-    <input type="radio" id="hasBeard" name="beardPreference" value="Beard, no Trim">
-    <label for="hasBeard">Beard, No Trim</label>
+        <input type="radio" id="hasBeard" name="beardPreference" value="Beard, no Trim">
+        <label for="hasBeard">Beard, No Trim</label>
 
-    <input type="radio" id="getsBeardDone" name="beardPreference" value="Beard Trim">
-    <label for="getsBeardDone">Beard Trim</label>
+        <input type="radio" id="getsBeardDone" name="beardPreference" value="Beard Trim">
+        <label for="getsBeardDone">Beard Trim</label>
 
-    <input type="radio" id="beardTrimShave" name="beardPreference" value="Beard Trim and Shave">
-    <label for="beardTrimShave">Beard Trim and Shave</label>
-  </fieldset>
+        <input type="radio" id="beardTrimShave" name="beardPreference" value="Beard Trim and Shave">
+        <label for="beardTrimShave">Beard Trim and Shave</label>
+      </fieldset>
 
-  <!-- Waxing Options -->
-  <label for="getsWaxing">Gets Waxing:</label>
-  <select name="getsWaxing" id="getsWaxing">
-    <option value="false" selected>No</option>
-    <option value="true">Yes</option>
-  </select>
+      <!-- Waxing Options -->
+      <label for="getsWaxing">Gets Waxing:</label>
+      <select name="getsWaxing" id="getsWaxing">
+        <option value="false" selected>No</option>
+        <option value="true">Yes</option>
+      </select>
 
-  <!-- Waxing Options Dropdown (Hidden by Default) -->
-  <div id="waxingOptions" style="display: none;">
-    <label for="waxingAreas">Select Waxing Areas:</label>
-    <select name="waxingAreas" id="waxingAreas">
-      <option value="one area">One Area</option>
-      <option value="two areas">Two Areas</option>
-      <option value="three areas">Three Areas</option>
-    </select>
+      <!-- Waxing Options Dropdown -->
+      <div id="waxingOptions" style="display: none;">
+        <label for="waxingAreas">Select Waxing Areas:</label>
+        <select name="waxingAreas" id="waxingAreas">
+          <option value="one area">One Area</option>
+          <option value="two areas">Two Areas</option>
+          <option value="three areas">Three Areas</option>
+        </select>
+      </div>
+
+      <!-- Appointment Date Picker -->
+      <label for="appointment">Appointment Date:</label>
+      <input type="date" name="appointment" id="appointment">
+
+      <!-- Client Notes -->
+      <label for="notes">Client Notes:</label>
+      <textarea name="notes" id="notes" placeholder="Any special requests or quirks?"></textarea>
+
+      <!-- Submit Button -->
+      <button type="submit">Save Client</button>
+    </form>
   </div>
 
-  <!-- Appointment Date Picker -->
-  <label for="appointment">Appointment Date:</label>
-  <input type="date" name="appointment" id="appointment">
-
-  <!-- Client Notes -->
-  <label for="notes">Client Notes:</label>
-  <textarea name="notes" id="notes" placeholder="Any special requests or quirks?"></textarea>
-
-  <!-- Submit Button -->
-  <button type="submit">Save Client</button>
-</form>
-<%- include('../partials/_footer.ejs') %>
+  <%- include('../partials/_footer.ejs') %>
 </body>
 </html>
