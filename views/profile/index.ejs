@@ -11,14 +11,11 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %> <!-- Navbar added here -->
-    <div class="container">
+    
+    <!-- 🌟 User Card -->
+    <div class="container user-card">
       <div class="profile-header">
-          <h1><%= user.name %></h1>  <!-- Bold name, left-aligned -->
-  
-          <!-- Profile Picture (Commented Out for Now) -->
-          <!-- <img src="<%= user.profilePicture %>" 
-              alt="<%= user.name %>'s Profile Picture" 
-              class="profile-picture"> -->
+          <h1><%= user.name %></h1>  <!-- Bigger & Bolder Name -->
       </div>
   
       <div class="profile-details">
@@ -28,44 +25,46 @@
       </div>
   
       <div class="profile-buttons">
-          <a href="/users/<%= user._id %>/profile/edit" class="btn">Edit Profile</a>
-          <a href="/users/<%= user._id %>/profile/new" class="btn">Add a New Client</a>
+          <a href="/users/<%= user._id %>/profile/new" class="btn small-btn">Add a New Client</a> <!-- Smaller Button -->
       </div>
-  </div>
-  <div class="clients-header">
-    <h2>Your Clients</h2>
-  </div>
+    </div>
 
-  <div class="clients-container">
-    <% if (user.clients.length > 0) { %>
-      <% user.clients.forEach(client => { %>
-        <div class="client-card">
-          <a href="/users/<%= user._id %>/profile/clients/<%= client._id %>" class="client-name">
-            <h3><%= client.name ? client.name : 'Unknown' %></h3>
-          </a>
-  
-          <p><strong>Preferred Cut:</strong> <%= client.cutsReceived ? client.cutsReceived : 'N/A' %></p>
-          
-          <p><strong>Beard Preference:</strong> 
-            <% if (client.beardPreference === 'none') { %> No Beard 
-            <% } else if (client.beardPreference === 'Beard, but no Trim') { %> Beard, but no Trim
-            <% } else if (client.beardPreference === 'Beard Trim') { %> Beard Trim 
-            <% } else if (client.beardPreference === 'Beard Trim and Shave') { %> Beard Trim and Shave 
-            <% } else { %> N/A <% } %>
-          </p>
-  
-          <p><strong>Waxing:</strong> <%= client.getsWaxing ? 'Yes' : 'No' %></p>
-          <p><strong>Waxing Areas:</strong> <%= client.waxingAreas ? client.waxingAreas : 'None' %></p>
-  
-          <p><strong>Notes:</strong> <%= client.notes ? client.notes : 'No notes' %></p>
-  
-          <a href="/users/<%= user._id %>/profile/clients/<%= client._id %>" class="btn">View Client</a>
-        </div>
-      <% }); %>
-    <% } else { %>
-      <p>No clients yet.</p>
-    <% } %>
-  </div>
+    <div class="clients-header">
+      <h2>Your Clients</h2>
+    </div>
+
+    <!-- 🌟 Clients List -->
+    <div class="clients-container">
+      <% if (user.clients.length > 0) { %>
+        <% user.clients.forEach(client => { %>
+          <div class="client-card">
+            <a href="/users/<%= user._id %>/profile/clients/<%= client._id %>" class="client-name">
+              <h3><%= client.name ? client.name : 'Unknown' %></h3>
+            </a>
+    
+            <p><strong>Preferred Cut:</strong> <%= client.cutsReceived ? client.cutsReceived : 'N/A' %></p>
+            
+            <p><strong>Beard Preference:</strong> 
+              <% if (client.beardPreference === 'none') { %> No Beard 
+              <% } else if (client.beardPreference === 'Beard, but no Trim') { %> Beard, but no Trim
+              <% } else if (client.beardPreference === 'Beard Trim') { %> Beard Trim 
+              <% } else if (client.beardPreference === 'Beard Trim and Shave') { %> Beard Trim and Shave 
+              <% } else { %> N/A <% } %>
+            </p>
+    
+            <p><strong>Waxing:</strong> <%= client.getsWaxing ? 'Yes' : 'No' %></p>
+            <p><strong>Waxing Areas:</strong> <%= client.waxingAreas ? client.waxingAreas : 'None' %></p>
+    
+            <p><strong>Notes:</strong> <%= client.notes ? client.notes : 'No notes' %></p>
+    
+            <a href="/users/<%= user._id %>/profile/clients/<%= client._id %>" class="btn small-btn">View Client</a> <!-- Smaller Button -->
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No clients yet.</p>
+      <% } %>
+    </div>
+
     <%- include('../partials/_footer.ejs') %>
-  </body>
+</body>
 </html>
