@@ -9,53 +9,68 @@
     <title><%= client.name %>'s Profile</title>
 </head>
 <body>
-    <nav>
-        <% if(user) { %>
-          <a href="/users/<%= user._id %>/profile">Your Profile</a>
-          <a href="/users/<%= user._id %>/clients">Manage Clients</a>
-          <a href="/auth/sign-out">Sign Out</a>
+    <nav class="main-nav">
+        <h1 class="site-title">The Barber Hub</h1>
+        <div class="nav-links">
+            <a href="/" class="nav-button">Home</a>
+            <% if(user) { %>
+                <a href="/users/<%= user._id %>/profile" class="nav-button">Your Profile</a>
+                <a href="/auth/sign-out" class="nav-button">Sign Out</a>
+            <% } else { %>
+                <a href="/auth/sign-in" class="nav-button">Sign In</a>
+                <a href="/auth/sign-up" class="nav-button">Sign Up</a>
+            <% } %>
+        </div>
+    </nav>
+    <div class="client-profile-container">
+        <!-- Client Name -->
+        <h1 class="client-name-title">Client: <%= client.name %></h1>
+
+        <div class="client-details">
+            <p><strong>Preferred Cut:</strong> <%= client.cutsReceived ? client.cutsReceived : 'N/A' %></p>
+            <p><strong>Beard Preference:</strong> 
+                <% if (client.beardPreference === 'none') { %> No Beard 
+                <% } else if (client.beardPreference === 'Beard, but no Trim') { %> Beard, but no Trim
+                <% } else if (client.beardPreference === 'Beard Trim') { %> Beard Trim 
+                <% } else if (client.beardPreference === 'Beard Trim and Shave') { %> Beard Trim and Shave 
+                <% } else { %> N/A <% } %>
+            </p>
+            <p><strong>Waxing:</strong> <%= client.getsWaxing ? 'Yes' : 'No' %></p>
+            <p><strong>Waxing Areas:</strong> <%= client.waxingAreas ? client.waxingAreas : 'None' %></p>
+            <p><strong>Notes:</strong> <%= client.notes ? client.notes : 'No notes' %></p>
+        </div>
+
+        <!-- Appointments Section -->
+        <h3 class="appointment-title">Appointments</h3>
+        <% if (client.appointments && client.appointments.length > 0) { %>
+            <ul class="appointment-list">
+                <% client.appointments.forEach(appointment => { %>
+                    <li class="appointment-item"><%= new Date(appointment).toLocaleDateString() %></li>
+                <% }); %>
+            </ul>
         <% } else { %>
-          <a href="/auth/sign-in">Sign In</a>
-          <a href="/auth/sign-up">Sign Up</a>
+            <p class="no-appointments">No appointments yet.</p>
         <% } %>
-      </nav>
-    <h1>Client: <%= client.name %></h1>
 
-    <p><strong>Preferred Cut:</strong> <%= client.cutsReceived ? client.cutsReceived : 'N/A' %></p>
-    <p><strong>Beard Preference:</strong> 
-        <% if (client.beardPreference === 'none') { %> No Beard 
-        <% } else if (client.beardPreference === 'Beard, but no Trim') { %> Beard, but no Trim
-        <% } else if (client.beardPreference === 'Beard Trim') { %> Beard Trim 
-        <% } else if (client.beardPreference === 'Beard Trim and Shave') { %> Beard Trim and Shave 
-        <% } else { %> N/A <% } %>
-    </p>
-    <p><strong>Waxing:</strong> <%= client.getsWaxing ? 'Yes' : 'No' %></p>
-    <p><strong>Waxing Areas:</strong> <%= client.waxingAreas ? client.waxingAreas : 'None' %></p>
-    <p><strong>Notes:</strong> <%= client.notes ? client.notes : 'No notes' %></p>
+        <!-- Action Buttons -->
+        <div class="client-actions">
+            <a href="/users/<%= user._id %>/profile/clients/<%= client._id %>/edit" class="edit-btn">Edit Client</a>
+            <form action="/users/<%= user._id %>/profile/clients/<%= client._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="delete-btn">Delete Client</button>
+            </form>
+        </div>
 
-    <h3>Appointments:</h3>
-    <% if (client.appointments && client.appointments.length > 0) { %>
-        <ul>
-            <% client.appointments.forEach(appointment => { %>
-                <li><%= new Date(appointment).toLocaleDateString() %></li>
-            <% }); %>
-        </ul>
-    <% } else { %>
-        <p>No appointments yet.</p>
-    <% } %>
-    <!-- Edit Button - Navigates to the Edit Form -->
-    <a href="/users/<%= user._id %>/profile/clients/<%= client._id %>/edit">
-        <button>Edit Client</button>
-    </a>
-  
-    <form action="/users/<%= user._id %>/profile/clients/<%= client._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete this client</button>
-    </form>
-    <a href="/users/<%= user._id %>/profile">Back to Profile</a>
+        <!-- Back to Profile -->
+        <a href="/users/<%= user._id %>/profile" class="back-link">← Back to Profile</a>
+    </div>
 
-    <footer>
+    <footer class="main-footer">
         <p>&copy; <%= new Date().getFullYear() %> The Barber Hub. All fades, trims, and shaves are final.</p>
-        <p><a href="/about">About</a> | <a href="/contact">Contact</a> | <a href="/faq">FAQ</a></p>
+        <div class="footer-links">
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/faq">FAQ</a>
+        </div>
       </footer>
 </body>
 </html>
