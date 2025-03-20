@@ -43,6 +43,8 @@ A full-stack **Node.js/Express/MongoDB** application that allows users to **book
 ### 🔹 Community Page
 ![CommunityPage](public/images/communityPage.png)
 
+### 🔹 About Me Page
+![AboutMe](public/images/about.png)
 ---
 
 ## 🔧 Installation & Setup
@@ -96,3 +98,9 @@ Then visit http://localhost:3000 in your browser.
 
 🎉 Thanks for checking out my project! Let me know if you have any feedback. 🚀
 
+<<<<<<< HEAD
+=======
+---
+
+
+>>>>>>> 5c86f14 (wip: fixed the readme)
