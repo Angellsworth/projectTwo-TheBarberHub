@@ -9,7 +9,8 @@
   <title>Editing <%= client.name %></title>
 </head>
 <body>
-  <nav class="main-nav">
+  <%- include('../partials/_navbar.ejs') %>
+  <!-- <nav class="main-nav">
     <h1 class="site-title">The Barber Hub</h1>
     <div class="nav-links">
         <a href="/" class="nav-button">Home</a>
@@ -21,7 +22,7 @@
             <a href="/auth/sign-up" class="nav-button">Sign Up</a>
         <% } %>
     </div>
-</nav>
+</nav> -->
 
   <div class="edit-client-container">
     <h1 class="edit-client-title">Edit Client: <%= client.name %></h1>
