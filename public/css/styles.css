@@ -135,7 +135,7 @@ body {
 }
 
 .auth-box {
-    background: var(--primary);
+    background: #f8edcce0;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
