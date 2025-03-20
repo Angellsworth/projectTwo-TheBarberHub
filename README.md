@@ -84,7 +84,7 @@ Then visit http://localhost:3000 in your browser.
 	•	📸 Allow users to upload client haircut photos to showcase past work
 	•	⭐ Create more functionality with barber profiles and add ratings
 	•	🎨 Improve UI/UX design
-    •   🌟 Allow barbers to **rate & review** fellow barber haircut photos 
+	•   	🌟 Allow barbers to **rate & review** fellow barber haircut photos 
 
 ⸻
 
