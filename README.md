@@ -28,7 +28,7 @@ A full-stack **Node.js/Express/MongoDB** application that allows users to **book
 | **Backend**        | Node.js, Express.js                                  |
 | **Database**       | MongoDB, Mongoose                                    |
 | **Authentication** | Express-session, bcrypt                              |
-| **Deployment**     | Render / Heroku                                      |
+| **Deployment**     | Heroku                                               |
 |--------------------|------------------------------------------------------|
 ---
 
