@@ -89,7 +89,7 @@ body {
     text-align: center;
     border-radius: 10px;
     max-width: 700px;
-    margin: 120px auto;
+    margin: 170px auto;
     box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -111,7 +111,7 @@ body {
     background: var(--primary);
     color: var(--accent);
     padding: 12px 20px;
-    border: 3px solid var(--accent);
+    border: 1.2px solid var(--accent);
     border-radius: 25px;
     font-weight: bold;
     text-decoration: none;
@@ -125,13 +125,15 @@ body {
 }
 
 /*========== FORMS ~ SIGN IN & SIGN UP  ==========*/
+
 .auth-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
-    padding: 20px;
-    margin: 100px;
+    padding: 40px 20px;
+    margin: 50px;
 }
 
 .auth-box {
@@ -444,7 +446,7 @@ body {
 /*========== CLIENT ~ SHOW PAGE ============*/
 .client-profile-container {
     max-width: 600px;
-    margin: 40px auto;
+    margin: 100px auto;
     padding: 25px;
     background: var(--text-light);
     border-radius: 12px;
@@ -750,7 +752,7 @@ body {
 /*========== FAQ PAGE ============*/
 .faq-container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 90px auto;
     padding: 20px;
     background: var(--text-light);
     border-radius: 10px;
@@ -826,12 +828,12 @@ body {
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
+    width: 90%;
     padding: 12px;
     border: 2px solid var(--border);
     border-radius: 6px;
     font-size: 16px;
-    background: var(--highlight);
+    background: #f9f4e5;
     color: var(--accent);
     transition: all 0.3s ease-in-out;
 }
