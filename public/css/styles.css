@@ -957,9 +957,7 @@ body {
     body {
         height: auto;
         background-size: cover;
-        /* Ensures background scales correctly */
         background-attachment: scroll;
-        /* Prevents issues on mobile */
     }
 
     .main-content {
@@ -1001,7 +999,7 @@ body {
 
     /* HERO SECTION */
     .hero-overlay {
-        max-width: 90%;
+        max-width: 100%;
         padding: 30px;
         margin: 80px auto;
     }
