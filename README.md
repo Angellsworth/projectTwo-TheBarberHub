@@ -96,7 +96,3 @@ Then visit http://localhost:3000 in your browser.
 
 🎉 Thanks for checking out my project! Let me know if you have any feedback. 🚀
 
----
-### 🔹 Community Page
-![About Me](public/images/about.png)
-
