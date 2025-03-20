@@ -27,7 +27,6 @@
                 <p><strong>Shop:</strong> <%= user.currentShop || "Independent Barber" %></p>
                 <p><strong>Specialties:</strong> <%= user.specialties ? user.specialties.join(', ') : "Not specified" %></p>
                 <p><strong>Experience:</strong> <%= user.experience %> years</p>
-                <a href="/users/<%= user._id %>" class="btn">View Profile</a>
             </div>
         <% }) %>
     </section>
