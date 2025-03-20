@@ -368,10 +368,11 @@ body {
 
 /*========== FORM ~ ADD CLIENT  ============*/
 .client-form-container {
-    max-width: 600px;
+    width: 90%;
+    max-width: 800px;
     margin: 40px auto;
     padding: 25px;
-    background: var(--text-light);
+    background: #fffdf7df;
     border-radius: 12px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
     border: 2px solid var(--border);
@@ -399,7 +400,7 @@ body {
 .client-form-container input,
 .client-form-container select,
 .client-form-container textarea {
-    width: 100%;
+    width: 90%;
     padding: 12px;
     margin-top: 5px;
     border: 2px solid var(--border);
@@ -927,4 +928,198 @@ body {
 
 .main-footer a:hover {
     color: var(--secondary);
+}
+
+/* ========== RESPONSIVE DESIGN - Mobile First ========== */
+@media (max-width: 768px) {
+
+    /* General Fixes */
+    html,
+    body {
+        height: auto;
+        background-size: cover;
+        /* Ensures background scales correctly */
+        background-attachment: scroll;
+        /* Prevents issues on mobile */
+    }
+
+    .main-content {
+        padding-top: 80px;
+        /* Reduce space on smaller screens */
+        padding-bottom: 80px;
+    }
+
+    /* NAVIGATION */
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 20px;
+    }
+
+    .site-title {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .nav-button {
+        padding: 10px 15px;
+        font-size: 1rem;
+        width: auto;
+        /* Keep natural width but align them */
+    }
+
+    /* HERO SECTION */
+    .hero-overlay {
+        max-width: 90%;
+        padding: 30px;
+        margin: 80px auto;
+    }
+
+    .hero-overlay h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-overlay p {
+        font-size: 0.9rem;
+    }
+
+    /* FORMS */
+    .auth-container {
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth-box {
+        max-width: 100%;
+        width: 100%;
+        padding: 30px;
+        border-radius: 0;
+        align-items: center;
+    }
+
+    /* PROFILE CONTAINER */
+    .container {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-header h1 {
+        font-size: 1.8rem;
+    }
+
+    /* CLIENT CARDS */
+    .clients-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .client-card {
+        width: 95%;
+        margin: 0 auto;
+        transform: none;
+        /* Remove hover translate effect on mobile */
+    }
+
+    .client-card:nth-child(even),
+    .client-card:nth-child(odd) {
+        margin: 0;
+        /* Remove the offset margin */
+    }
+
+    .client-card:hover {
+        transform: none;
+    }
+
+    /* COMMUNITY GRID */
+    .barber-grid {
+        grid-template-columns: 1fr;
+        /* Stack barber cards on mobile */
+        padding: 20px;
+    }
+
+    /* FORMS */
+    .client-form-container,
+    .edit-client-container {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .client-form-container {
+            width: 100%;
+            /* Full screen width on mobile */
+            max-width: none;
+            /* Remove width limitation */
+            margin: 0;
+            /* Remove outer spacing */
+            padding: 20px;
+            border-radius: 0;
+            /* Optional: Makes it feel like a full-screen mobile form */
+            box-shadow: none;
+            /* Optional: Removes shadow for a flat look */
+        }
+
+        .client-form-container h1 {
+            font-size: 2rem;
+            /* Scale down the title */
+        }
+
+        .client-form-container label {
+            font-size: 1rem;
+        }
+
+        .client-form-container input,
+        .client-form-container select,
+        .client-form-container textarea {
+            width: 70%;
+            /* Make inputs fill the form */
+            font-size: 1rem;
+            /* Ensure text is readable */
+        }
+    }
+
+    /* BUTTONS */
+    .btn,
+    .small-btn {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .client-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* FOOTER */
+    .main-footer {
+        height: auto;
+        padding: 15px;
+    }
+
+    .main-footer a {
+        display: block;
+        margin: 10px 0;
+    }
 }
