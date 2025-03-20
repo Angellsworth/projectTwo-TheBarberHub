@@ -94,13 +94,6 @@ Then visit http://localhost:3000 in your browser.
 
 ⸻
 
-📢 Final Notes
-	•	Replace all your-image-link-here placeholders with actual image links from your GitHub repository.
-	•	Update the deployed app link in the README.
-	•	Ensure your .env file is in .gitignore to keep sensitive info private.
-
-⸻
-
 🎉 Thanks for checking out my project! Let me know if you have any feedback. 🚀
 
 ---
