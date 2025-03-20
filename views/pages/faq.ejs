@@ -18,28 +18,52 @@
             <h2 class="faq-question">How do I sign up?</h2>
             <p class="faq-answer">Click on the <a href="/auth/sign-up">Sign Up</a> button in the navigation bar. Fill in your details, and you’re all set!</p>
         </div>
-
+        
+        <div class="faq-item">
+            <h2 class="faq-question">What if I forget my password?</h2>
+            <p class="faq-answer">We don't have password recovery yet, but you can contact us on the <a href="/views/pages/contact.ejs">Contact</a> page.</p>
+        </div>
+        
         <div class="faq-item">
             <h2 class="faq-question">Can I edit my client's information?</h2>
             <p class="faq-answer">Yes! Go to <a href="/users/<%= user ? user._id : '#' %>/profile">Your Profile</a>, find the client, and click “Edit.”</p>
         </div>
-
-        <div class="faq-item">
-            <h2 class="faq-question">What if I forget my password?</h2>
-            <p class="faq-answer">We don't have password recovery yet, but you can contact us on the <a href="/contact">Contact</a> page.</p>
-        </div>
-
+        
         <div class="faq-item">
             <h2 class="faq-question">How do I delete a client?</h2>
-            <p class="faq-answer">Go to your client list, click on a client, and hit “Delete.” This action **cannot** be undone.</p>
+            <p class="faq-answer">Go to your client list, click on a client, and hit “Delete.” This action <strong>cannot</strong> be undone.</p>
         </div>
-
+        
         <div class="faq-item">
-            <h2 class="faq-question">What's the best way to track appointments?</h2>
-            <p class="faq-answer">You can add appointment dates in the client profile and keep notes for each client!</p>
+            <h2 class="faq-question">Will I be able to upload photos of my haircuts?</h2>
+            <p class="faq-answer">Yes! A future update will allow barbers to upload photos of their haircuts and attach them to client info cards. This will help track past styles and show clients their previous cuts.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h2 class="faq-question">Can I organize client haircut history?</h2>
+            <p class="faq-answer">We’re working on a feature where you can store photos and notes for each client. This way, you can easily reference their preferred styles during future visits.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h2 class="faq-question">What are Barber Battles?</h2>
+            <p class="faq-answer">Barber Battles will be a community competition where barbers can submit haircut photos in different categories and compete for votes from other barbers. Winners will earn recognition and bragging rights!</p>
+        </div>
+        
+        <div class="faq-item">
+            <h2 class="faq-question">How will the voting system for Barber Battles work?</h2>
+            <p class="faq-answer">Barbers will be able to vote on submitted photos, and rankings will be displayed in real time. The goal is to showcase skills and celebrate creativity in the industry.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h2 class="faq-question">Will there be leaderboards for top barbers?</h2>
+            <p class="faq-answer">A future leaderboard will highlight the most voted barbers in competitions and showcase trending styles from the community.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h2 class="faq-question">Can I connect with other barbers through the site?</h2>
+            <p class="faq-answer">Yes! We plan to introduce a community feature where barbers can share insights, discuss techniques, and collaborate with others in their shop or city.</p>
         </div>
     </div>
-
     <%- include('../partials/_footer.ejs') %>
 </body>
 </html>
