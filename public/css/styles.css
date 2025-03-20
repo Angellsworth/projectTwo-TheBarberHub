@@ -446,7 +446,7 @@ body {
 /*========== CLIENT ~ SHOW PAGE ============*/
 .client-profile-container {
     max-width: 600px;
-    margin: 100px auto;
+    margin: 160px auto;
     padding: 25px;
     background: var(--text-light);
     border-radius: 12px;
@@ -560,8 +560,9 @@ body {
 
 /*========== CLIENT ~ EDIT PAGE ============*/
 .edit-client-container {
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 800px;
+    width: 400px;
+    margin: 140px auto;
     padding: 25px;
     background: var(--text-light);
     border-radius: 12px;
@@ -595,7 +596,7 @@ body {
 .edit-client-form input,
 .edit-client-form select,
 .edit-client-form textarea {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-top: 5px;
     border: 2px solid var(--border);
