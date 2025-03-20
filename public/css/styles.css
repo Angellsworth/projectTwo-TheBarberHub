@@ -269,6 +269,25 @@ body {
 
 
 /*========== CLIENTS ~ Views.Index.ejs  ============*/
+.clients-header {
+    width: 100vw;
+    text-align: center;
+    padding: 20px;
+    background: #304657c5;
+    color: var(--primary);
+    border-top: 3px solid var(--border);
+    border-bottom: 3px solid var(--border);
+}
+
+.clients-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+    /* Ensure text is visible */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .clients-container {
     display: flex;
     flex-wrap: wrap;
