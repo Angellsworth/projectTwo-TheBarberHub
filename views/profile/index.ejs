@@ -12,7 +12,7 @@
 <body>
     <%- include('../partials/_navbar.ejs') %> <!-- Navbar added here -->
     
-    <!-- 🌟 User Card -->
+    <!-- User Card -->
     <div class="container user-card">
       <div class="profile-header">
           <h1><%= user.name %></h1>  <!-- Bigger & Bolder Name -->
@@ -33,7 +33,7 @@
       <h2>Your Clients</h2>
     </div>
 
-    <!-- 🌟 Clients List -->
+    <!-- Clients List -->
     <div class="clients-container">
       <% if (user.clients.length > 0) { %>
         <% user.clients.forEach(client => { %>
