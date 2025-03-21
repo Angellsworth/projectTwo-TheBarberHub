@@ -3,7 +3,6 @@
     <h1 class="site-title">The Barber Hub</h1>
    
     <div class="nav-links">
-        <a href="/" class="nav-button">Home</a>
         <% if(user) { %>
             <a href="/users/<%= user._id %>/profile" class="nav-button">Your Profile</a>
             <a href="/users" class="nav-button">Community</a> <!-- Added Community Link -->
